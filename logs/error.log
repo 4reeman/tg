@@ -516,3 +516,19 @@ Stack trace:
 #3 /var/www/html/index.php(7): DataFormatter->__construct()
 #4 {main}
   thrown in /var/www/html/TelegramSendMessage.php on line 14" while reading response header from upstream, client: 91.108.6.131, server: server4reema.vps.webdock.cloud, request: "POST / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.1-fpm.sock:", host: "server4reema.vps.webdock.cloud"
+2022/10/22 17:31:39 [error] 260#260: *71 FastCGI sent in stderr: "PHP message: PHP Warning:  include(TrelloButtonKeybord.php): Failed to open stream: No such file or directory in /var/www/html/DataFormatter.php on line 6PHP message: PHP Warning:  include(): Failed opening 'TrelloButtonKeybord.php' for inclusion (include_path='.:/usr/share/php') in /var/www/html/DataFormatter.php on line 6PHP message: PHP Fatal error:  Uncaught TypeError: http_build_query(): Argument #1 ($data) must be of type array, int given in /var/www/html/TelegramSendMessage.php:14
+Stack trace:
+#0 /var/www/html/TelegramSendMessage.php(14): http_build_query()
+#1 /var/www/html/DataFormatter.php(47): TelegramSendMessage->response()
+#2 /var/www/html/DataFormatter.php(14): DataFormatter->sendMessage()
+#3 /var/www/html/index.php(7): DataFormatter->__construct()
+#4 {main}
+  thrown in /var/www/html/TelegramSendMessage.php on line 14" while reading response header from upstream, client: 91.108.6.131, server: server4reema.vps.webdock.cloud, request: "POST / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.1-fpm.sock:", host: "server4reema.vps.webdock.cloud"
+2022/10/22 17:32:39 [error] 262#262: *73 FastCGI sent in stderr: "PHP message: PHP Warning:  include(TrelloButtonKeybord.php): Failed to open stream: No such file or directory in /var/www/html/DataFormatter.php on line 6PHP message: PHP Warning:  include(): Failed opening 'TrelloButtonKeybord.php' for inclusion (include_path='.:/usr/share/php') in /var/www/html/DataFormatter.php on line 6PHP message: PHP Fatal error:  Uncaught TypeError: http_build_query(): Argument #1 ($data) must be of type array, int given in /var/www/html/TelegramSendMessage.php:14
+Stack trace:
+#0 /var/www/html/TelegramSendMessage.php(14): http_build_query()
+#1 /var/www/html/DataFormatter.php(47): TelegramSendMessage->response()
+#2 /var/www/html/DataFormatter.php(14): DataFormatter->sendMessage()
+#3 /var/www/html/index.php(7): DataFormatter->__construct()
+#4 {main}
+  thrown in /var/www/html/TelegramSendMessage.php on line 14" while reading response header from upstream, client: 91.108.6.131, server: server4reema.vps.webdock.cloud, request: "POST / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.1-fpm.sock:", host: "server4reema.vps.webdock.cloud"
