@@ -32,7 +32,7 @@ class DataFormatter {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new DatabaseInfo();
             $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
-//            $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
+            $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
                 'inline_keyboard' => [
                     [
@@ -47,24 +47,25 @@ class DataFormatter {
                 'reply_markup' => $encodedKeyboard,
             ];
             $response->response('sendMessage', $trelloKeyLink);
-//            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
-//            $keyboard = [
-//                'inline_keyboard' => [
-//                    [
-//                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
-//                    ]
-//                ]
-//            ];
-//            $encodedKeyboard = json_encode($keyboard);
-//            $trelloButton = [
-//                'chat_id' => $this->getChatId(),
-//                'text' => 'click here',
-//                'reply_markup' => $encodedKeyboard,
-//            ];
-//            $response->response('sendMessage', $trelloButton);
         }
         else {
-            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
+//            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
+            $personalKey = $this->getMessage();
+            $keyboard = [
+                'inline_keyboard' => [
+                    [
+                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
+                    ]
+                ]
+            ];
+            $encodedKeyboard = json_encode($keyboard);
+            $trelloButton = [
+                'chat_id' => $this->getChatId(),
+                'text' => 'click here',
+                'reply_markup' => $encodedKeyboard,
+            ];
+            $response->response('sendMessage', $trelloButton);
+//            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
         }
     }
 
