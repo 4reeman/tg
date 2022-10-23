@@ -48,7 +48,7 @@ class DataFormatter {
             $response->response('sendMessage', $trelloButton);
         }
         else {
-            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . json_decode('\xE2\x98\x9D')]);
+            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
         }
     }
 
