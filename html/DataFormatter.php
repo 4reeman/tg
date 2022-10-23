@@ -32,10 +32,11 @@ class DataFormatter {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new DatabaseInfo();
             $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
+            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
             $keyboard = [
                 'inline_keyboard' => [
                     [
-                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103ef']
+                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
                     ]
                 ]
             ];
