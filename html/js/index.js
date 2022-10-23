@@ -1,6 +1,6 @@
 const btn = document.getElementById('submitBtn');
 
-function sendData(data) {
+function sendData() {
     console.log('Sending data');
 
     const XHR = new XMLHttpRequest();
@@ -38,5 +38,5 @@ function sendData(data) {
 }
 
 btn.addEventListener('click', () => {
-    sendData({ test: 'ok' });
+    sendData();
 })
