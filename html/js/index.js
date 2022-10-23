@@ -1,4 +1,4 @@
-const btn = Document.getElementById('submitBtn');
+const btn = document.getElementById('submitBtn');
 
 function sendData(data) {
     console.log('Sending data');
