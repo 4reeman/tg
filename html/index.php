@@ -157,8 +157,9 @@ catch (PDOException $e) {
         <form action="">
             <label for="Key">Please, enter Your Key:</label>
             <input type="text" id="Key">
+            <input type="submit" id="submitBtn" value="Submit">
         </form>
     </div>
-<!--<script src="js/index.js"></script>-->
+<script src="js/index.js"></script>
 </body>
 </html>
