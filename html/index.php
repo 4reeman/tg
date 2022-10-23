@@ -154,7 +154,7 @@ catch (PDOException $e) {
 </head>
 <body>
     <div>
-        <form action="">
+        <form action="" method="get">
             <label for="Key">Please, enter Your Key:</label>
             <input type="text" id="Key">
             <input type="submit" id="submitBtn" value="Submit">
