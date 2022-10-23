@@ -33,7 +33,8 @@ function sendData(data) {
     XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     // Finally, send our data.
-    XHR.send(urlEncodedData);
+    // XHR.send(urlEncodedData);
+    XHR.send();
 }
 
 btn.addEventListener('click', () => {
