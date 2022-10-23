@@ -62,7 +62,7 @@ class DataFormatter {
             $encodedKeyboard = json_encode($keyboard);
             $trelloButton = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey,
+                'text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103ef',
 //                'text' => 'click here',
 //                'reply_markup' => $encodedKeyboard,
                 'parse_mode'=> 'Markdown',
