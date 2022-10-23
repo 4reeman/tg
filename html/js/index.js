@@ -1,10 +1,10 @@
 // 1. Создаём новый XMLHttpRequest-объект
 let btn = document.getElementById('submitBtn');
 
-alert('asd');
 function sendData() {
-let btnValue = document.getElementById('submitBtn').value;
-let xhr = new XMLHttpRequest();
+    let btnValue = document.getElementById('submitBtn').value;
+    alert(btnValue);
+    let xhr = new XMLHttpRequest();
 
 // 2. Настраиваем его: GET-запрос по URL /article/.../load
 xhr.open('GET', 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + btnValue);
