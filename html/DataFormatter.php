@@ -48,7 +48,7 @@ class DataFormatter {
             $response->response('sendMessage', $trelloButton);
         }
         else {
-            $response->response('sendMessage',[$this->getChatId(), hex2bin('\xE2\x98\x9D')]);
+            $response->response('sendMessage',[$this->getChatId(), utf8_encode('\xE2\x98\x9D')]);
         }
     }
 
