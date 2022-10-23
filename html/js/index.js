@@ -2,7 +2,7 @@
 let btn = document.getElementById('submitBtn');
 
 function sendData() {
-    let btnValue = document.getElementById('submitBtn').value;
+    let btnValue = document.getElementById('Key').value;
     alert(btnValue);
     let xhr = new XMLHttpRequest();
 
