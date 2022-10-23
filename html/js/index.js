@@ -18,7 +18,10 @@ function sendData() {
             alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
         } else { // если всё прошло гладко, выводим результат
             alert(`Готово, получили ${xhr.response.length} байт`); // response -- это ответ сервера
-            let x = xhr.response;
+            $(function(){
+                $("#test").load(xhr.response);
+            });
+            // let x = xhr.response;
         }
     };
 
