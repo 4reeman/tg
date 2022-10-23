@@ -32,21 +32,36 @@ class DataFormatter {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new DatabaseInfo();
             $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
-            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
+//            $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
                 'inline_keyboard' => [
                     [
-                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
+                        ['text' => 'Your Trello Key', 'url' => 'https://trello.com/app-key']
                     ]
                 ]
             ];
             $encodedKeyboard = json_encode($keyboard);
-            $trelloButton = [
+            $trelloKeyLink = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'click here',
+                'text' => 'I`m need your key to authorize you in trello',
                 'reply_markup' => $encodedKeyboard,
             ];
-            $response->response('sendMessage', $trelloButton);
+            $response->response('sendMessage', $trelloKeyLink);
+//            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
+//            $keyboard = [
+//                'inline_keyboard' => [
+//                    [
+//                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
+//                    ]
+//                ]
+//            ];
+//            $encodedKeyboard = json_encode($keyboard);
+//            $trelloButton = [
+//                'chat_id' => $this->getChatId(),
+//                'text' => 'click here',
+//                'reply_markup' => $encodedKeyboard,
+//            ];
+//            $response->response('sendMessage', $trelloButton);
         }
         else {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
