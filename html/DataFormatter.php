@@ -21,14 +21,14 @@ class DataFormatter {
 
     public function sendMessage() {
         $response = new TelegramSendMessage();
-        $permissions = json_encode(['can_send_message' => 'false']);
-        $par = [
-            'chat_id' => $this->getChatId(),
-            'user_id' => $this->getUserId(),
-            'permissions' => $permissions,
-        ];
+//        $permissions = json_encode(['can_send_message' => 'false']);
+//        $par = [
+//            'chat_id' => $this->getChatId(),
+//            'user_id' => $this->getUserId(),
+//            'permissions' => $permissions,
+//        ];
+//        $response->response('restrictChatMember', $par);
         if ($this->getMessage() == '/start') {
-            $response->response('restrictChatMember', $par);
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new DatabaseInfo();
             $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
@@ -47,9 +47,9 @@ class DataFormatter {
             ];
             $response->response('sendMessage', $trelloButton);
         }
-//        else {
-//            $response->response('sendMessage',[$this->getChatId(), 'trello button']);
-//        }
+        else {
+            $response->response('sendMessage',[$this->getChatId(), 'make your choice \xE2\x98\x9D']);
+        }
     }
 
     protected function getChatId() {
