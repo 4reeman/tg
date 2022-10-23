@@ -54,7 +54,8 @@ class DataFormatter {
             $keyboard = [
                 'inline_keyboard' => [
                     [
-                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
+//                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
+                        ['text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey, 'parse_mode'=> 'Markdown']
                     ]
                 ]
             ];
