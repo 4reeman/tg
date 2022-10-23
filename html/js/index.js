@@ -37,7 +37,7 @@ xhr.onerror = function() {
 
 btn.addEventListener('click', () => {
     sendData();
-})
+});
 // const btn = document.getElementById('submitBtn');
 //
 // function sendData() {
