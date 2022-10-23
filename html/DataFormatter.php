@@ -49,12 +49,11 @@ class DataFormatter {
             $response->response('sendMessage', $trelloKeyLink);
         }
         else {
-//            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
-            $personalKey = $this->getMessage();
+            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
+//            $personalKey = $this->getMessage();
             $keyboard = [
                 'inline_keyboard' => [
                     [
-//                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
                         ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
                     ]
                 ]
@@ -62,10 +61,8 @@ class DataFormatter {
             $encodedKeyboard = json_encode($keyboard);
             $trelloButton = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103ef',
-//                'text' => 'click here',
-//                'reply_markup' => $encodedKeyboard,
-                'parse_mode'=> 'Markdown',
+                'text' => 'click here',
+                'reply_markup' => $encodedKeyboard,
             ];
             $response->response('sendMessage', $trelloButton);
 //            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
