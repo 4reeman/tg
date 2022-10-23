@@ -18,19 +18,18 @@ xhr.onload = function() {
         alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
     } else { // если всё прошло гладко, выводим результат
         alert(`Готово, получили ${xhr.response.length} байт`); // response -- это ответ сервера
-        fetch(URL).then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-        });
     }
 };
 
 xhr.onerror = function() {
     alert("Запрос не удался");
 };
-
+    fetch(URL).then((response) => {
+        return response.json();
+    })
+        .then((data) => {
+            console.log(data);
+        });
 }
 
 btn.addEventListener('click', () => {
