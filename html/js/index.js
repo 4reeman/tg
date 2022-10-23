@@ -3,11 +3,11 @@ let btn = document.getElementById('submitBtn');
 
 function sendData() {
     let btnValue = document.getElementById('Key').value;
-    alert(btnValue);
+    let URL = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + btnValue;
     let xhr = new XMLHttpRequest();
 
 // 2. Настраиваем его: GET-запрос по URL /article/.../load
-xhr.open('GET', 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + btnValue);
+xhr.open('GET', URL);
 
 // 3. Отсылаем запрос
 xhr.send();
@@ -18,15 +18,13 @@ xhr.onload = function() {
         alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
     } else { // если всё прошло гладко, выводим результат
         alert(`Готово, получили ${xhr.response.length} байт`); // response -- это ответ сервера
+        fetch(URL).then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        });
     }
-};
-xhr.onprogress = function(event) {
-    if (event.lengthComputable) {
-        alert(`Получено ${event.loaded} из ${event.total} байт`);
-    } else {
-        alert(`Получено ${event.loaded} байт`); // если в ответе нет заголовка Content-Length
-    }
-
 };
 
 xhr.onerror = function() {
