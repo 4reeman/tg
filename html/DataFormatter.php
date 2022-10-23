@@ -55,15 +55,17 @@ class DataFormatter {
                 'inline_keyboard' => [
                     [
 //                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
-                        ['text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey, 'parse_mode'=> 'Markdown']
+                        ['text' => 'trello auth', 'url' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey]
                     ]
                 ]
             ];
             $encodedKeyboard = json_encode($keyboard);
             $trelloButton = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'click here',
-                'reply_markup' => $encodedKeyboard,
+                'text' => 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $personalKey,
+//                'text' => 'click here',
+//                'reply_markup' => $encodedKeyboard,
+                'parse_mode'=> 'Markdown',
             ];
             $response->response('sendMessage', $trelloButton);
 //            $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Make your choice' . "\xE2\x98\x9D"]);
