@@ -1,7 +1,7 @@
 // 1. Создаём новый XMLHttpRequest-объект
 let btn = document.getElementById('submitBtn');
 
-
+alert('asd');
 function sendData() {
 let btnValue = document.getElementById('submitBtn').value;
 let xhr = new XMLHttpRequest();
