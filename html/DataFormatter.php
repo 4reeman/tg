@@ -8,6 +8,8 @@ include 'TrelloButtonKeybord.php';
 class DataFormatter {
 
     public $data;
+    public $api_key;
+    public $token;
 
     public function __construct() {
         $this->postData();
@@ -50,26 +52,33 @@ class DataFormatter {
             $response->response('sendMessage', $trelloKeyLink);
         }
         else {
-
-            $url = "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . $this->getMessage();
-            $header = get_headers($url);
-            $status_code = $header[0];
-            $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
-            if ($status_code = 'HTTP/1.1 200 OK') {
-                $keyboard = [
-                    'inline_keyboard' => [
-                        [
-                            ['text' => 'Your Trello Token', 'url' => $url]
+                $url = "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . $this->getMessage();
+                $header = get_headers($url);
+                $status_code = $header[0];
+                $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
+                if ($status_code = 'HTTP/1.1 200 OK') {
+                    $this->api_key = $this->getMessage();
+                    $keyboard = [
+                        'inline_keyboard' => [
+                            [
+                                ['text' => 'Your Trello Token', 'url' => $url]
+                            ]
                         ]
-                    ]
-                ];
-                $encodedKeyboard = json_encode($keyboard);
-                $trelloTokenLink = [
-                    'chat_id' => $this->getChatId(),
-                    'text' => 'I`m need your token to get data from dashboards',
-                    'reply_markup' => $encodedKeyboard,
-                ];
-                $response->response('sendMessage', $trelloTokenLink);
+                    ];
+                    $encodedKeyboard = json_encode($keyboard);
+                    $trelloTokenLink = [
+                        'chat_id' => $this->getChatId(),
+                        'text' => 'I`m need your token to get data from dashboards',
+                        'reply_markup' => $encodedKeyboard,
+                    ];
+                    $response->response('sendMessage', $trelloTokenLink);
+            }
+            if ($this->getMessage() == '1b5ccb13c4da29a0e24e72265d1f5288784712017cadb158b65920d1c85980b1') {
+                $this->token = $this->getMessage();
+                $url_q = 'https://api.trello.com/1/members/me/boards?key=' . $this->api_key .'&token=' . $this->token;
+                $header = get_headers($url_q);
+                $status_code = $header[0];
+                $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
             }
 //            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
 ////            $personalKey = $this->getMessage();
