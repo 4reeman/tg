@@ -19,7 +19,6 @@ class DataFormatter {
     public function postData() {
         $hook = new PostHook();
         $this->data = $hook->getData();
-        echo($this->data);
     }
 
     public function sendMessage()
@@ -40,14 +39,14 @@ class DataFormatter {
             $keyboard = [
                 'inline_keyboard' => [
                     [
-                        ['text' => 'Your Trello Key', 'url' => 'https://trello.com/app-key']
+                        ['text' => 'Trello Authorization', 'url' => 'https://server4reema.vps.webdock.cloud/']
                     ]
                 ]
             ];
             $encodedKeyboard = json_encode($keyboard);
             $trelloKeyLink = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'I`m need your key to authorize you in trello',
+                'text' => 'Tap this one',
                 'reply_markup' => $encodedKeyboard,
             ];
             $response->response('sendMessage', $trelloKeyLink);
