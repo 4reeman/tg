@@ -146,18 +146,17 @@ catch (PDOException $e) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trello Authorization</title>
-<!--    <link rel="stylesheet" href="css/style.css">-->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="../dist/css/style.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div>
         <form>
-            <label for="Key">Please, enter Your Key:</label>
-            <input type="text" id="Key">
-            <input type="button" id="submitBtn" value="Submit">
+            <label for="api_key">Please, enter Your Key:</label>
+            <input type="text" id="api_key">
+            <input type="button" id="submit_btn" value="Submit">
         </form>
     </div>
-<script src="js/index.js"></script>
+<script src="../dist/js/index.min.js"></script>
 </body>
 </html>
