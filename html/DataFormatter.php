@@ -17,6 +17,7 @@ class DataFormatter {
     public function postData() {
         $hook = new PostHook();
         $this->data = $hook->getData();
+        echo($this->data);
     }
 
     public function sendMessage() {
