@@ -1,36 +1,55 @@
 // 1. Создаём новый XMLHttpRequest-объект
-let btn = document.getElementById('submitBtn');
+// let btn = document.getElementById('submitBtn');
+// let btnValue = document.getElementById('Key').value;
+let btn = $('#submitBtn');
 
 function sendData() {
-    let btnValue = document.getElementById('Key').value;
-    let URL = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + btnValue;
-    let xhr = new XMLHttpRequest();
-
+    // let btnValue = document.getElementById('Key').value;
+    // let URL = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + btnValue;
+    // let xhr = new XMLHttpRequest();
+    let apiKey = $('#Key').val();
+    $.ajax({
+        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' ,
+        type: "post",
+        data: "baz=doh",
+        success: function() {
+            display("Done, look at your console's network tab");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            // log the error to the console
+            console.log(
+                "The following error occured: "+
+                textStatus, errorThrown
+            );
+        }
+    });
 // 2. Настраиваем его: GET-запрос по URL /article/.../load
-    xhr.open('GET', URL);
+//     xhr.open('GET', URL);
 
 // 3. Отсылаем запрос
-    xhr.send();
+//     xhr.send();
 
 // 4. Этот код сработает после того, как мы получим ответ сервера
-    xhr.onload = function() {
-        if (xhr.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
-            alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
-        } else { // если всё прошло гладко, выводим результат
-            alert(`Готово, получили ${xhr.response.length} байт`); // response -- это ответ сервера
-            window.open(URL,"_self")
-        }
-    };
-
-xhr.onerror = function() {
-    alert("Запрос не удался");
-};
+//     xhr.onload = function() {
+//         if (xhr.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
+//             alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
+//         } else { // если всё прошло гладко, выводим результат
+//             alert(`Готово, получили ${xhr.response.length} байт`); // response -- это ответ сервера
+//             window.open(URL,"_self")
+//         }
+//     };
+//
+// xhr.onerror = function() {
+//     alert("Запрос не удался");
+// };
 
 }
-
-btn.addEventListener('click', () => {
-    sendData();
+btn.on('click', ()=>{
+   sendData();
 });
+// btn.addEventListener('click', () => {
+//     sendData();
+// });
 // const btn = document.getElementById('submitBtn');
 //
 // function sendData() {
