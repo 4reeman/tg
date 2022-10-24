@@ -4,7 +4,8 @@ include 'DataFormatter.php';
 //include 'DatabaseInfo.php';
 //include 'DatabaseConnection.php';
 
-new DataFormatter();
+$a = new DataFormatter();
+echo($a->data);
 //$cl = new DatabaseInfo();
 //
 //function a() {
