@@ -72,10 +72,15 @@ class DataFormatter {
                         'reply_markup' => $encodedKeyboard,
                     ];
                     $response->response('sendMessage', $trelloTokenLink);
-                $url_q = 'https://api.trello.com/1/members/me/boards?key=' . $this->api_key .'&token=' . '1b5ccb13c4da29a0e24e72265d1f5288784712017cadb158b65920d1c85980b1';
-                $header = get_headers($url_q);
-                $status_code = $header[0];
-                $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
+
+                    $url_q = 'https://api.trello.com/1/members/me/boards?key=' . $this->api_key .'&token=' . '1b5ccb13c4da29a0e24e72265d1f5288784712017cadb158b65920d1c85980b1';
+                    $header = get_headers($url_q);
+                    $status_code = $header[0];
+                    $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
+                    $board = 'https://api.trello.com/1/members/me/boards?fields=name&' . $this->api_key .'&token=' . '1b5ccb13c4da29a0e24e72265d1f5288784712017cadb158b65920d1c85980b1';
+                    $header = get_headers($url_q);
+                    $status_code = $header[0];
+                    $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$board]);
             }
 //            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
 ////            $personalKey = $this->getMessage();
