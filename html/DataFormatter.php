@@ -53,8 +53,7 @@ class DataFormatter {
 
             $url = "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . $this->getMessage();
             $header = get_headers($url);
-            print_r($header);
-            $status_code = $header[0];
+            $status_code = $header;
             $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
 //            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
 ////            $personalKey = $this->getMessage();
