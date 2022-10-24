@@ -55,7 +55,7 @@ class DataFormatter {
             $header = get_headers($url);
             print_r($header);
             $status_code = $header[0];
-            echo $status_code;
+            $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
 //            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
 ////            $personalKey = $this->getMessage();
 //            $keyboard = [
