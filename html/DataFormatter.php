@@ -53,8 +53,24 @@ class DataFormatter {
 
             $url = "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . $this->getMessage();
             $header = get_headers($url);
-            $status_code = $header;
+            $status_code = $header[0];
             $response->response('sendMessage', ['chat_id'=>$this->getChatId(), 'text' =>$status_code]);
+            if ($status_code = 'HTTP/1.1 200 OK') {
+                $keyboard = [
+                    'inline_keyboard' => [
+                        [
+                            ['text' => 'Your Trello Token', 'url' => $url]
+                        ]
+                    ]
+                ];
+                $encodedKeyboard = json_encode($keyboard);
+                $trelloTokenLink = [
+                    'chat_id' => $this->getChatId(),
+                    'text' => 'I`m need your token to get data from dashboards',
+                    'reply_markup' => $encodedKeyboard,
+                ];
+                $response->response('sendMessage', $trelloTokenLink);
+            }
 //            $personalKey = 'ea3b9632108faebab5ffab2128e103ef';
 ////            $personalKey = $this->getMessage();
 //            $keyboard = [
