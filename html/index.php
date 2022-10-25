@@ -148,15 +148,15 @@ catch (PDOException $e) {
     <title>Trello Authorization</title>
     <link type="text/css" rel="stylesheet" href="../dist/css/style.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../dist/js/index.min.js"></script>
 </head>
 <body>
-    <div>
+<div>
         <form>
             <label for="api_key">Please, enter Your Key:</label>
             <input type="text" id="api_key">
             <input type="button" id="submit_btn" value="Submit">
         </form>
     </div>
-<script src="../dist/js/index.min.js"></script>
 </body>
 </html>
