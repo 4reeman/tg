@@ -2,8 +2,9 @@
 let btn = $('#submit_btn');
 
 function sendData() {
+    let key =  $('#api_key').val()
     $.ajax({
-        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . $('#api_key').val(),
+        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
         type: "get",
         data: "",
         success: function() {
@@ -21,4 +22,3 @@ function sendData() {
 btn.on('click', ()=>{
    sendData();
 });
-alert('work');
