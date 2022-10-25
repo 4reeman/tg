@@ -29,26 +29,13 @@ body {
 		background-position: 0% 50%;
 	}
 }
-@keyframes button {
-	0% {
-		background-position: 0% 50%;
-	}
-
-	50% {
-		background-position: 100% 50%;
-	}
-
-	100% {
-		background-position: 0% 50%;
-	}
-}
 .main {
 	height: inherit;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	.form_validation {
-		& > {
+		& > * {
 			margin: 5px;
 			border-radius: 15px;
 			padding: 10px;
