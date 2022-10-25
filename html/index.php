@@ -146,9 +146,9 @@ catch (PDOException $e) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trello Authorization</title>
-    <link type="text/css" rel="stylesheet" href="../dist/css/style.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../dist/js/index.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../dist/css/style.min.css">
 </head>
 <body>
 <div>
