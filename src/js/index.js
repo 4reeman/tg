@@ -21,3 +21,4 @@ function sendData() {
 btn.on('click', ()=>{
    sendData();
 });
+alert('work');
