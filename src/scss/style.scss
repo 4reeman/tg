@@ -58,50 +58,13 @@ body {
 }
 
 .submit {
+	width: 30%;
+	align-self: end;
 	border: none;
-	animation-duration: 30ms;
-}
-
-//.submit {
-//	width: 30%;
-//	align-self: end;
-//	border: none;
-//	outline: none;
-//	color: #fff;
-//	background: #111;
-//	cursor: pointer;
-//}
-.submit {
-	/*background: #79b928;
-	color: #fff;*/
-	padding: 20px 23px;
-	position: relative;
-	overflow: hidden;
-}
-
-.submit::before {
-	content: "";
-	position: absolute;
-	background-color: rgba(0,0,0,.1);
-	width: 10%;
-	height: 25%;
-	border-radius: 50%;
-	z-index: 1;
-	top: 35%;
-	left: 45%;
-	transform: scale(0);
-}
-
-.submit:hover::before {
-	transform: scale(12);
-	-webkit-transition: border-radius .5s .5s,-webkit-transform .5s;
-	transition: transform .5s,border-radius .5s .5s;
-}
-
-.submit:hover::after {
-	content: "";
-	position: absolute;
-	z-index: 2;
-	left: 50%;
-	transform: translateX(-50%);
+	outline: none;
+	color: #fff;
+	background: #3AFF62;
+	cursor: pointer;
+	transition-duration: 1s;
+	transition-property: background-color;
 }
