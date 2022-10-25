@@ -147,7 +147,7 @@ catch (PDOException $e) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trello Authorization</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../dist/js/index.min.js"></script>
+    <script type="text/javascript"  src="../dist/js/index.min.js"></script>
     <link type="text/css" rel="stylesheet" href="../dist/css/style.min.css">
 </head>
 <body>
