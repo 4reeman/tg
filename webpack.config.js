@@ -6,7 +6,7 @@ module.exports = {
         __dirname + '/src/scss/style.scss'
     ],
     output: {
-        path: path.resolve(__dirname, 'dist'), 
+        path: path.resolve(__dirname + '/html', 'dist'),
         filename: 'js/index.min.js',
     },
     module: {
