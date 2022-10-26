@@ -1,0 +1,71 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing:border-box;
+}
+
+input {
+	border: none;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.main {
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form_validation {
+	& > * {
+		margin: 5px;
+		border-radius: 15px;
+		padding: 10px;
+	}
+
+	background: #a1ffc2;
+	padding: 15px;
+	border-radius: 20px;
+	min-width: 25%;
+	opacity: 0.7;
+	width: min-content;
+	display: flex;
+	flex-direction: column;
+}
+
+.submit {
+	width: 30%;
+	align-self: end;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #3AFF62;
+	cursor: pointer;
+	font-size: 1rem;
+	transition-duration: 1s;
+	transition-property: background-color;
+}

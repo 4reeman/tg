@@ -1,0 +1,22 @@
+{
+    "name": "jek-12/tg",
+    "require": {
+        "psr/container": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TelegramExt\\Src\\": "app/src",
+            "TelegramExt\\Exception\\Container\\": "app/Exception/Container",
+            "TelegramExt\\Config\\DataBase\\": "app/Config/DataBase",
+            "TelegramExt\\Communication\\": "app/Communication"
+        },
+        "files": [
+            "/app/src/DataFormatter.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "freeman"
+        }
+    ]
+}
