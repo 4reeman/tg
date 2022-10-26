@@ -2,11 +2,11 @@ const path = require('path');
 
 module.exports = {
     entry: [
-        __dirname + '/src/js/index.js',
-        __dirname + '/src/scss/style.scss'
+        __dirname + '/App/assets/js/index.js',
+        __dirname + '/App/assets/scss/style.scss'
     ],
     output: {
-        path: path.resolve(__dirname + '/html', 'dist'),
+        path: path.resolve(__dirname + '/App/public', 'dist'),
         filename: 'js/index.min.js',
     },
     module: {
