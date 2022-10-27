@@ -3,32 +3,43 @@ let btn = $('#submit_btn');
 
 function sendData() {
     let key =  $('#api_key').val()
-    $.ajax({
-        type: "GET",
-        url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
-        data: {someData: true},
-        statusCode: {
-            404: function (responseObject, textStatus, jqXHR) {
-                alert('404');
-                // No content found (404)
-                // This code will be executed if the server returns a 404 response
-            },
-            503: function (responseObject, textStatus, errorThrown) {
-                // Service Unavailable (503)
-                // This code will be executed if the server returns a 503 response
-            }
-        }
 
-    })
-.done(function(data){
-        alert(data);
-    })
-        .fail(function(jqXHR, textStatus){
-            alert('Something went wrong: ' + textStatus);
-        })
-        .always(function(jqXHR, textStatus) {
-            alert('Ajax request was finished')
-        });
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = ()=>{
+        if(this.status == 200) {
+            alert(toString(this.status));
+        } else {
+          alert(toString(this.status));
+            console.log('not found');
+        }
+    }
+//     $.ajax({
+//         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
+//         type: "GET",
+//         data: "",
+//         statusCode: {
+//             404: function (responseObject, textStatus, jqXHR) {
+//                 alert('404');
+//                 // No content found (404)
+//                 // This code will be executed if the server returns a 404 response
+//             },
+//             503: function (responseObject, textStatus, errorThrown) {
+//                 // Service Unavailable (503)
+//                 // This code will be executed if the server returns a 503 response
+//             }
+//         }
+//
+//     })
+// .done(function(data){
+//         alert(data);
+//     })
+//         .fail(function(jqXHR, textStatus){
+//             alert('Something went wrong: ' + textStatus);
+//         })
+//         .always(function(jqXHR, textStatus) {
+//             alert('Ajax request was finished')
+//         });
 
 }
 btn.on('click', ()=>{
