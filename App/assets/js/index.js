@@ -14,6 +14,9 @@ function sendData() {
             console.log('not found');
         }
     }
+
+    request.open("GET", "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key, true);
+
 //     $.ajax({
 //         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
 //         type: "GET",
