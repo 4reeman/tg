@@ -4,31 +4,31 @@ let btn = $('#submit_btn');
 function sendData() {
     let key =  $('#api_key').val()
     $.ajax({
-        url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
         type: "GET",
-        data: {},
-        // dataType:"text json",
-        success: function(xml, textStatus, xhr) {
-            console.log(arguments);
-            console.log(xhr.status);
-        },
-        complete: function(xhr, textStatus) {
-            console.log(xhr.status);
+        url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
+        data: {someData: true},
+        statusCode: {
+            404: function (responseObject, textStatus, jqXHR) {
+                // No content found (404)
+                // This code will be executed if the server returns a 404 response
+            },
+            503: function (responseObject, textStatus, errorThrown) {
+                // Service Unavailable (503)
+                // This code will be executed if the server returns a 503 response
+            }
         }
-        // url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
-        // type: "get",
-        // data: "",
-        // success: function() {
-        //     alert("Done, look at your console's network tab");
-        // },
-        // error: function(jqXHR, textStatus, errorThrown){
-        //     // log the error to the console
-        //     console.log(
-        //         "The following error occured: "+
-        //         textStatus, errorThrown
-        //     );
-        // }
-    });
+
+    })
+.done(function(data){
+        alert(data);
+    })
+        .fail(function(jqXHR, textStatus){
+            alert('Something went wrong: ' + textStatus);
+        })
+        .always(function(jqXHR, textStatus) {
+            alert('Ajax request was finished')
+        });
+
 }
 btn.on('click', ()=>{
    sendData();
@@ -48,3 +48,19 @@ for (let i = 0; i < accordion.length; i++) {
         }
     });
 }
+
+
+
+// url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
+// type: "get",
+// data: "",
+// success: function() {
+//     alert("Done, look at your console's network tab");
+// },
+// error: function(jqXHR, textStatus, errorThrown){
+//     // log the error to the console
+//     console.log(
+//         "The following error occured: "+
+//         textStatus, errorThrown
+//     );
+// }
