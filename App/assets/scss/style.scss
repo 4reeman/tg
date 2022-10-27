@@ -60,10 +60,10 @@ body {
 }
 
 .help_form {
-	&:nth-child(odd){
+	& > :nth-child(odd){
 		border-radius: 15px 15px 0 0;
 	}
-	&:nth-child(even){
+	& > :nth-child(even){
 		border-radius: 0 0 15px 15px;
 	}
 }
