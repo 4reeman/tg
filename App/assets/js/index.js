@@ -4,17 +4,24 @@ let btn = $('#submit_btn');
 function sendData() {
     let key =  $('#api_key').val()
 
-    $.ajax({
-        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
-        type: 'GET',
-        contentType: 'application/json',
-        success: function(){
-            alert('hello');
-        },
-        error: function(){
-            alert('error');
-        }
-    });
+    let Http = new XMLHttpRequest();
+    let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange =(e)=>{
+        console.log(Http.responseText);
+    }
+    // $.ajax({
+    //     url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
+    //     type: 'GET',
+    //     contentType: 'application/json',
+    //     success: function(){
+    //         alert('hello');
+    //     },
+    //     error: function(){
+    //         alert('error');
+    //     }
+    // });
 //     $.ajax({
 //         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
 //         type: "GET",
