@@ -33,7 +33,7 @@ $a = new DataFormatter();
         </div>
         <label for="api_key">Your Personal Key:</label>
         <input type="text" id="api_key">
-        <input type="button" id="submit_btn" class="submit" value="Submit">
+        <input type="button" id="submit_btn" class="button" value="Submit">
     </form>
 </div>
 <script src="dist/js/index.min.js"></script>

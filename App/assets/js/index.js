@@ -15,15 +15,12 @@ function sendData() {
         console.log(Http.responseText);
     }
 
-Http.onerror = function() { // only triggers if the request couldn't be made at all
+    Http.onerror = function() {
         alert(`Network Error`);
     };
 
-    Http.onprogress = function(event) { // triggers periodically
-                                       // event.loaded - how many bytes downloaded
-                                       // event.lengthComputable = true if the server sent Content-Length header
-                                       // event.total - total number of bytes (if lengthComputable)
-        alert(`Received ${event.loaded} of ${event.total}`);
+    Http.onprogress = function(e) {
+        alert(`Received ${e.loaded} of ${e.total}`);
     };
 
 
