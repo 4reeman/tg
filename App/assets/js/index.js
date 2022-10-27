@@ -6,13 +6,25 @@ function sendData() {
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
 
     let Http = new XMLHttpRequest();
-    Http.open("GET", url);
+    Http.open("GET", url, true);
     Http.send();
+    Http.onload = function() {
+        alert(`Loaded: ${Http.status} ${Http.response}`);
+    };
     Http.onreadystatechange =(e)=>{
         console.log(Http.responseText);
     }
 
+Http.onerror = function() { // only triggers if the request couldn't be made at all
+        alert(`Network Error`);
+    };
 
+    Http.onprogress = function(event) { // triggers periodically
+                                       // event.loaded - how many bytes downloaded
+                                       // event.lengthComputable = true if the server sent Content-Length header
+                                       // event.total - total number of bytes (if lengthComputable)
+        alert(`Received ${event.loaded} of ${event.total}`);
+    };
 
 
 
