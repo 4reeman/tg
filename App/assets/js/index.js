@@ -4,7 +4,7 @@ let btn = $('#submit_btn');
 function sendData() {
     let key =  $('#api_key').val()
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
-    alert(key);
+    alert(url);
     console.log(key);
     console.log(typeof key);
     // let Http = new XMLHttpRequest();
