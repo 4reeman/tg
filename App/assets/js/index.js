@@ -7,8 +7,8 @@ function sendData() {
         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
         type: "GET",
         data: {},
-        dataType:"text json",
-        success: function(json, textStatus, xhr) {
+        // dataType:"text json",
+        success: function(xml, textStatus, xhr) {
             console.log(arguments);
             console.log(xhr.status);
         },
