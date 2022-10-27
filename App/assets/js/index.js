@@ -26,7 +26,7 @@ function sendData() {
 
     $.ajax({
         type: 'POST',
-        url: 'https://api.telegram.org/bot5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw/sendMessage?chat_id=-1001658519019&text=Ех, Микола. Кусок пиздабола)',
+        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103ef',
         // crossDomain: true,
         success: function (data, textStatus, xhr) {
             console.log(data);
