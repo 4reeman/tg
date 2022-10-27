@@ -5,18 +5,18 @@ function sendData() {
     let key =  $('#api_key').val()
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
 
-    $.getJSON(url, function(json_data){
-        alert(JSON.stringify(json_data));
-    });
+    let Http = new XMLHttpRequest();
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange =(e)=>{
+        console.log(Http.responseText);
+    }
 
 
-    //
-    // let Http = new XMLHttpRequest();
-    // Http.open("GET", url);
-    // Http.send();
-    // Http.onreadystatechange =(e)=>{
-    //     console.log(Http.responseText);
-    // }
+
+
+
+
     // $.ajax({
     //     url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
     //     type: 'GET',
