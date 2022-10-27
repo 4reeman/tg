@@ -5,6 +5,8 @@ function sendData() {
     let key =  $('#api_key').val()
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
     alert(key);
+    console.log(key);
+    typeof key;
     // let Http = new XMLHttpRequest();
     // Http.open("GET", url, true);
     // Http.send();
@@ -26,7 +28,7 @@ function sendData() {
 
     $.ajax({
         type: 'GET',
-        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103e',
+        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
         // crossDomain: true,
         success: function (data, textStatus, xhr) {
             console.log(data);
