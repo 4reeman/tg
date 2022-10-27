@@ -44,9 +44,9 @@ body {
 	& > * {
 		margin: 5px;
 		padding: 10px;
-		//&:not(.help_form) {
-		//	border-radius: 15px;
-		//}
+		&:not(.help_form) {
+			border-radius: 15px;
+		}
 	}
 
 	background: #a1ffc2;
