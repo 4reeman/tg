@@ -26,7 +26,7 @@ function sendData() {
 
     $.ajax({
         type: 'GET',
-        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103ef',
+        url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=ea3b9632108faebab5ffab2128e103e',
         // crossDomain: true,
         success: function (data, textStatus, xhr) {
             console.log(data);
