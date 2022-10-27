@@ -27,7 +27,7 @@ $a = new DataFormatter();
                 <div class="panel">
                     <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>
                     <p>You need to copy its value and then put it in form</p>
-                    <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/login', '__blank')">
+                    <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/app-key', '__blank')">
                 </div>
             </div>
         </div>
