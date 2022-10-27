@@ -42,7 +42,7 @@ body {
 
 .form_validation {
 	& > * {
-		&:not(.panel) {
+		&:not(.help_form) {
 			margin: 5px;
 			border-radius: 15px;
 			padding: 10px;

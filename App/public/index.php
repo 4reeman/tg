@@ -17,13 +17,12 @@ $a = new DataFormatter();
 <body>
 <div class='main'>
     <form id="validation" class="form_validation">
-        <button type="button" class="accordion">Where i can take a Personal Key</button>
-        <div class="panel">
-            <p>First of all, make sure you are logged into Trello:</p>
-            <input type="button" class="submit" value="Sign in Trello">
-            <!--        <form target="_blank" action="https://trello.com/login">-->
-            <!--            <input type="submit" class="submit" value="Sign in Trello" />-->
-            <!--        </form>-->
+        <div class="help_form">
+            <button type="button" class="accordion">Where i can take a Personal Key</button>
+            <div class="panel">
+                <p>First of all, make sure you are logged into Trello:</p>
+                <input type="button" class="submit" value="Sign in Trello">
+            </div>
         </div>
         <label for="api_key">Please, enter Your Personal Key:</label>
         <input type="text" id="api_key">
