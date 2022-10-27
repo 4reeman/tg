@@ -9,6 +9,7 @@ function sendData() {
         data: {someData: true},
         statusCode: {
             404: function (responseObject, textStatus, jqXHR) {
+                alert('404');
                 // No content found (404)
                 // This code will be executed if the server returns a 404 response
             },
