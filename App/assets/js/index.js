@@ -9,15 +9,15 @@ function sendData() {
     request.onreadystatechange = function () {
         console.log(request);
         if(request.status == 200) {
-            alert(toString(request.status));
+            alert(request.status);
         } else {
-            alert(toString(request.status));
+            alert(request.status);
             console.log('not found');
         }
     }
 
     request.open("GET", "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key, true);
-
+    request.send();
 //     $.ajax({
 //         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
 //         type: "GET",
