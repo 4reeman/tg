@@ -1,1 +1,1 @@
-cd ; cd /var/www; git pull origin master;
+cd ; cd /var/www/tg; git pull origin master; npm run build;
