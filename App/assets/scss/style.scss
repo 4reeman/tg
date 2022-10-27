@@ -101,10 +101,11 @@ body {
 
 .panel {
 	padding: 0 18px;
-	background-color: white;
+	margin: 10px 0;
 }
 
 .panels {
+	background-color: white;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
