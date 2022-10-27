@@ -28,6 +28,7 @@ let accordion = $('.accordion');
 for (let i = 0; i < accordion.length; i++) {
     accordion[i].addEventListener("click", function() {
         this.classList.toggle("active");
+        console.log(this.nextElementSibling);
         let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
