@@ -16,8 +16,15 @@ $a = new DataFormatter();
 </head>
 <body>
 <div class='main'>
+    <button class="accordion">Where i can take a Personal Key</button>
+    <div class="panel">
+        <p>First of all, make sure you are logged into Trello:</p>
+        <form action="https://trello.com/login">
+            <input type="submit" value="Sign in Trello" />
+        </form>
+    </div>
     <form id="validation" class="form_validation">
-        <label for="api_key">Please, enter Your Key:</label>
+        <label for="api_key">Please, enter Your Personal Key:</label>
         <input type="text" id="api_key">
         <input type="button" id="submit_btn" class="submit" value="Submit">
     </form>
