@@ -21,7 +21,7 @@ $a = new DataFormatter();
             <button type="button" class="accordion">Where i can take a Personal Key</button>
             <div class="panel">
                 <p>First of all, make sure you are logged into Trello:</p>
-                <input type="button" onClick="window.open='https://trello.com/login'" class="submit" value="Sign in Trello">
+                <a onClick="window.open='https://trello.com/login'" target="_blank" class="submit">Sign in Trello</a>
             </div>
         </div>
         <label for="api_key">Please, enter Your Personal Key:</label>
