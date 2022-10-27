@@ -41,7 +41,7 @@ body {
 }
 
 .form_validation {
-	& > * {
+	& > * :not(.panel) {
 		margin: 5px;
 		border-radius: 15px;
 		padding: 10px;
@@ -75,7 +75,6 @@ body {
 	color: #444;
 	cursor: pointer;
 	padding: 18px;
-	width: 100%;
 	border: none;
 	text-align: left;
 	outline: none;
