@@ -36,3 +36,7 @@ for (let i = 0; i < accordion.length; i++) {
         }
     });
 }
+
+function trelloSignIn() {
+    window.open("https://trello.com/login");
+}
