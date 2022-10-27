@@ -99,7 +99,7 @@ body {
 }
 
 .panel {
-	//padding: 0 18px;
+	padding: 18px;
 	//margin: 10px 0;
 	& > .submit {
 		padding: 5px 15px;
@@ -116,10 +116,9 @@ body {
 }
 
 .panels {
-	//display: flex;
-	//flex-direction: column;
-	//gap: 10px;
-	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	background-color: white;
 	max-height: 0;
 	overflow: hidden;
