@@ -28,8 +28,12 @@ function sendData() {
         type: 'GET',
         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
         dataType: "json",
-        success: function (response) {
-                alert('200');
+        crossDomain: true,
+        success: function (data, textStatus, xhr) {
+            console.log(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(errorThrown);
         }
     });
 
