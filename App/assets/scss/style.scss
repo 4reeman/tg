@@ -105,6 +105,12 @@ body {
 		padding: 5px 15px;
 		width: 40%;
 	}
+	& > p {
+		padding-bottom: 10px;
+	}
+	&:last-child {
+		padding-bottom: 10px;
+	}
 	&::after {
 		content: '';
 		width: 100%;
