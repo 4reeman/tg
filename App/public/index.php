@@ -18,14 +18,18 @@ $a = new DataFormatter();
 <div class='main'>
     <form id="validation" class="form_validation">
         <div class="help_form">
-            <button type="button" class="accordion">Where i can take a Personal Key</button>
+            <button type="button" class="accordion">Where can i take a Personal Key</button>
             <div class="panel">
                 <p>First of all, make sure You are logged into Trello:</p>
-<!--                <a href="https://trello.com/login" target="_blank" class="submit">Sign in Trello</a>-->
                 <input type="button" class="submit" value="Sign in Trello" onclick="window.open('https://trello.com/login', '__blank')">
             </div>
+            <div class="panel">
+                <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>
+                <p>You need to copy its value and then put it in form</p>
+                <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/login', '__blank')">
+            </div>
         </div>
-        <label for="api_key">Please, enter Your Personal Key:</label>
+        <label for="api_key">Your Personal Key:</label>
         <input type="text" id="api_key">
         <input type="button" id="submit_btn" class="submit" value="Submit">
     </form>
