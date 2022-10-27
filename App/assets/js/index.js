@@ -26,8 +26,8 @@ function sendData() {
 
     $.ajax({
         type: 'POST',
-        url: 'https://api.telegram.org/bot5705182372:AAFDEVyqyd6rn04PZjqn7iG5ZImRTBHBglg/sendMessage?chat_id=-1001658519019&text=Ех, Микола. Кусок пиздабола)',
-        crossDomain: true,
+        url: 'https://api.telegram.org/bot5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw/sendMessage?chat_id=-1001658519019&text=Ех, Микола. Кусок пиздабола)',
+        // crossDomain: true,
         success: function (data, textStatus, xhr) {
             console.log(data);
         },
