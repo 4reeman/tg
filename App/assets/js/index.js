@@ -7,7 +7,7 @@ function sendData() {
     let request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if(this.status == 200) {
+        if(this.readyState == 4 && this.status == 200) {
             alert(toString(this.status));
         } else {
           alert(toString(this.status));
