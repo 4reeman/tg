@@ -6,7 +6,7 @@ function sendData() {
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
     alert(key);
     console.log(key);
-    typeof key;
+    console.log(typeof key);
     // let Http = new XMLHttpRequest();
     // Http.open("GET", url, true);
     // Http.send();
