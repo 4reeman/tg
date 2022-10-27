@@ -4,18 +4,19 @@ let btn = $('#submit_btn');
 function sendData() {
     let key =  $('#api_key').val()
 
-    request.open("GET", "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key, true);
-
     let request = new XMLHttpRequest();
+
     request.onreadystatechange = function () {
-        if(this.readyState == 4 && this.status == 200) {
-            alert(toString(this.status));
+        console.log(request);
+        if(request.status == 200) {
+            alert(toString(request.status));
         } else {
-            alert(toString(this.status));
+            alert(toString(request.status));
             console.log('not found');
         }
-
     }
+
+    request.open("GET", "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key, true);
 
 //     $.ajax({
 //         url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
