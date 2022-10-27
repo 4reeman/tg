@@ -26,7 +26,7 @@ btn.on('click', ()=>{
 let accordion = $('.accordion');
 
 for (let i = 0; i < accordion.length; i++) {
-    accordion[i].on("click", ()=>{
+    accordion[i].addEventListener("click", function() {
         this.classList.toggle("active");
         console.log(this.nextElementSibling);
         let panel = this.nextElementSibling;
