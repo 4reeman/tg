@@ -5,26 +5,33 @@ function sendData() {
     let key =  $('#api_key').val()
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key;
 
-    let Http = new XMLHttpRequest();
-    Http.open("GET", url, true);
-    Http.send();
-    Http.onload = function() {
-        alert(`Loaded: ${Http.status} ${Http.response}`);
-    };
-    Http.onreadystatechange =(e)=>{
-        console.log(Http.responseText);
-    }
+    // let Http = new XMLHttpRequest();
+    // Http.open("GET", url, true);
+    // Http.send();
+    // Http.onload = function() {
+    //     alert(`Loaded: ${Http.status} ${Http.response}`);
+    // };
+    // Http.onreadystatechange =(e)=>{
+    //     console.log(Http.responseText);
+    // }
+    //
+    // Http.onerror = function() {
+    //     alert(`Network Error`);
+    // };
+    //
+    // Http.onprogress = function(e) {
+    //     alert(`Received ${e.loaded} of ${e.total}`);
+    // };
 
-    Http.onerror = function() {
-        alert(`Network Error`);
-    };
 
-    Http.onprogress = function(e) {
-        alert(`Received ${e.loaded} of ${e.total}`);
-    };
-
-
-
+    $.ajax({
+        type: 'GET',
+        url: "https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=" . key,
+        dataType: "json",
+        success: function (response) {
+                alert('200');
+        }
+    });
 
     // $.ajax({
     //     url: 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' . key,
