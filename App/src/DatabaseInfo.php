@@ -11,14 +11,12 @@ class DatabaseInfo {
     }
 
     public function insertData($user_id, $user_name, $chat_id) {
-        if (!$this->reviewData($user_id, $chat_id)) {
-            try {
-                $query = "INSERT INTO user_data (user_id, user_name, chat_id) VALUES (?,?,?)";
-                $prepared = $this->dbConnection->connection->prepare($query);
-                $prepared->execute([$user_id, $user_name, $chat_id]);
-            } catch (Exception $e) {
-                file_put_contents('my_log.txt', "Database error insertData: " . $e->getMessage());
-            }
+        try {
+            $query = "INSERT INTO user_data (user_id, user_name, chat_id) VALUES (?,?,?)";
+            $prepared = $this->dbConnection->connection->prepare($query);
+            $prepared->execute([$user_id, $user_name, $chat_id]);
+        } catch (Exception $e) {
+            file_put_contents('my_log.txt', "Database error insertData: " . $e->getMessage());
         }
     }
 

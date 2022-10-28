@@ -39,7 +39,9 @@ class DataFormatter {
         if ($this->getMessage() == '/start') {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new DatabaseInfo();
-            $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
+            if (!$db->reviewData($this->getUserId(), $this->getChatId())) {
+                $db->insertData($this->getUserId(), $this->getUserName(), $this->getChatId());
+            }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
                 'inline_keyboard' => [
