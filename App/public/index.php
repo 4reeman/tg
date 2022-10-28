@@ -2,7 +2,6 @@
 
 include '../src/DataFormatter.php';
 $a = new DataFormatter();
-?>
 
 function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
@@ -49,6 +48,7 @@ function refresh($time){
     echo "</pre>";
 }
 a();
+?>
 
 <!--<!DOCTYPE html>-->
 <!--<html lang="en">-->
