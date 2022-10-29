@@ -10,22 +10,22 @@ function a() {
     $headers = getallheaders();
     if($data!=null) {
         file_put_contents('data.json', json_encode($headers));
-        refresh( 2 );
+//        refresh( 2 );
     }
-    else {
-        refresh( 2);
-    }
+//    else {
+//        refresh( 2);
+//    }
 }
-function refresh($time){
-    $current_url = $_SERVER[ 'REQUEST_URI' ];
-    header( "Refresh: " . $time . "; URL=$current_url" );
-    $ret = json_decode(file_get_contents('data.json'), true);
-//    echo $ret['message']['from']['first_name'];
-//    echo $ret['message']['chat']['id'];
-    echo "<pre>";
-    print_r($ret);
-    echo "</pre>";
-}
+//function refresh($time){
+//    $current_url = $_SERVER[ 'REQUEST_URI' ];
+//    header( "Refresh: " . $time . "; URL=$current_url" );
+//    $ret = json_decode(file_get_contents('data.json'), true);
+////    echo $ret['message']['from']['first_name'];
+////    echo $ret['message']['chat']['id'];
+//    echo "<pre>";
+//    print_r($ret);
+//    echo "</pre>";
+//}
 a();
 ?>
 
