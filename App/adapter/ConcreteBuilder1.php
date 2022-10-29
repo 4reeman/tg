@@ -14,22 +14,22 @@ class ConcreteBuilder1 implements Builder {
 
     public function TrelloDashboard()
     {
-        echo 'Trello Board, ';
+        return 'Trello Board, ';
     }
 
     public function TrelloCard()
     {
-        echo 'Trello Card';
+        return 'Trello Card';
     }
 
     public function TelegramChatId()
     {
-        echo 'TelegramChatId, ';
+        return $this->product->getData()['message']['chat']['id'];
     }
 
     public function TelegramUserId()
     {
-        echo 'TelegramUserId';
+        return $this->product->getData()['message']['from']['id'];
     }
 
     public function WebDockKey()

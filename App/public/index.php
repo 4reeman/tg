@@ -25,7 +25,6 @@ function a() {
         refresh( 2 );
     }
     else {
-        echo (is_object($data));
         refresh( 2);
     }
 }
