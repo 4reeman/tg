@@ -4,8 +4,8 @@ include '../src/DataFormatter.php';
 include "../src/PostHook.php";
 $a = new DataFormatter();
 
-$b = new PostHook();
-$mon = $b->getData();
+//$b = new PostHook();
+//$mon = $b->getData();
 
 function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
