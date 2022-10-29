@@ -21,6 +21,7 @@ function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
     if($data!=null) {
         file_put_contents('data.json', json_encode(getallheaders()));
+        file_put_contents('data1.json', json_encode($http_response_header()));
         refresh( 5);
     }
     else {
@@ -31,10 +32,14 @@ function refresh($time){
     $current_url = $_SERVER[ 'REQUEST_URI' ];
     header( "Refresh: " . $time . "; URL=$current_url" );
     $ret = json_decode(file_get_contents('data.json'), true);
+    $ret1 = json_decode(file_get_contents('data1.json'), true);
 //    echo $ret['message']['from']['first_name'];
 //    echo $ret['message']['chat']['id'];
     echo "<pre>";
     print_r($ret);
+    echo "</pre>";
+    echo "<pre>";
+    print_r($ret1);
     echo "</pre>";
 }
 a();
