@@ -8,8 +8,4 @@ Class PostHook {
         return $data;
     }
 
-    public function getHeader() {
-        return 'trello;';
-    }
-
 }
