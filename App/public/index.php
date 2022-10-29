@@ -7,14 +7,14 @@ $a = new DataFormatter();
 
 function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
-    $headers = getallheaders();
+    $headers = $http_response_header();
     if($data!=null) {
         file_put_contents('data.json', json_encode($headers));
 //        refresh( 2 );
     }
-//    else {
+    else {
 //        refresh( 2);
-//    }
+    }
 }
 //function refresh($time){
 //    $current_url = $_SERVER[ 'REQUEST_URI' ];
@@ -26,7 +26,7 @@ function a() {
 //    print_r($ret);
 //    echo "</pre>";
 //}
-a();
+//a();
 ?>
 
 <!DOCTYPE html>
