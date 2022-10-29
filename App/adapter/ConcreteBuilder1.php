@@ -12,34 +12,30 @@ class ConcreteBuilder1 implements Builder {
         $this->product = new Product1();
     }
 
-    public function TrelloDashboard()
-    {
-        return 'Trello Board, ';
-    }
-
-    public function TrelloCard()
-    {
-        return 'Trello Card';
+    public function getData() {
+//        $http_body = file_get_contents("php://input");  // exploit change! don`t use file_get_contents
+//        $data = json_decode($http_body,true, 25, JSON_OBJECT_AS_ARRAY);
+        $data = [
+            'message' => [
+                'from' => [
+                    'id' => 'myId'
+                ],
+                'chat' => [
+                    'id' => 'myId'
+                ]
+            ]
+        ];
+        return $data;
     }
 
     public function TelegramChatId()
     {
-        return $this->product->getData()['message']['chat']['id'];
+        $this->product->getData()['message']['chat']['id'];
     }
 
     public function TelegramUserId()
     {
-        return $this->product->getData()['message']['from']['id'];
-    }
-
-    public function WebDockKey()
-    {
-        // TODO: Implement WebDockKey() method.
-    }
-
-    public function WebDockToken()
-    {
-        // TODO: Implement WebDockToken() method.
+        $this->product->getData()['message']['from']['id'];
     }
 
     public function getProduct(): Product1
