@@ -21,10 +21,10 @@ function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
     if($data!=null) {
         file_put_contents('data.json', json_encode(getallheaders()));
-        refresh( 2 );
+        refresh( 5);
     }
     else {
-        refresh( 2);
+        refresh( 5);
     }
 }
 function refresh($time){
