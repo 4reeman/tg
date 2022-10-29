@@ -7,9 +7,6 @@ include 'DatabaseInfo.php';
 class DataFormatter {
 
     public $data;
-//    private $obj;
-//    public $api_key;
-//    public $token;
 
     public function __construct() {
         $this->postData();
@@ -20,11 +17,6 @@ class DataFormatter {
         $hook = new PostHook();
         $this->data = $hook->getData();
     }
-//
-//    public function execute() {
-//        $this->getObj();
-//        $obj->exec();
-//    }
 
     public function sendMessage()
     {
