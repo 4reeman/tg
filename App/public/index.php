@@ -1,7 +1,7 @@
 <?php
 
 include '../src/DataFormatter.php';
-include "../src/PostHook.php";
+
 $a = new DataFormatter();
 
 //$b = new PostHook();
@@ -27,7 +27,7 @@ function a() {
 //    print_r($ret);
 //    echo "</pre>";
 //}
-//a();
+a();
 ?>
 
 <!DOCTYPE html>
