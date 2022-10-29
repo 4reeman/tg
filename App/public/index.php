@@ -1,7 +1,22 @@
 <?php
 
 include '../src/DataFormatter.php';
+include '../adapter/Director.php';
+include '../adapter/ConcreteBuilder1.php';
 $a = new DataFormatter();
+$director = new Director();
+code($director);
+function code(Director $director) {
+    $builder = new ConcreteBuilder1();
+    $builder->getProduct();
+    $director->setBuilder($builder);
+
+    echo('TrelloStub:\n');
+    $director->TrelloMethods();
+
+    echo('TelegramStub:\n');
+    $director->TelegramMethods();
+}
 //
 //function a() {
 //    $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
