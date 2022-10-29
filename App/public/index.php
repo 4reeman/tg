@@ -1,15 +1,16 @@
 <?php
 
 include '../src/DataFormatter.php';
-include '../adapter/Director.php';
-include '../adapter/ConcreteBuilder1.php';
+include "../src/PostHook.php";
 $a = new DataFormatter();
+
+$b = new PostHook();
+$mon = $b->getData();
 
 function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
-    $headers = $http_response_header();
     if($data!=null) {
-        file_put_contents('data.json', json_encode($headers));
+        file_put_contents('data.json', json_encode($data["monitor"]["name"]));
 //        refresh( 2 );
     }
     else {
