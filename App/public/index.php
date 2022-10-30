@@ -21,7 +21,7 @@ function a() {
     $data = $class->getData();
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-        file_put_contents('data1.json', json_encode($class->headers));
+        file_put_contents('data1.json', json_encode($class->headers['host']));
         refresh( 5);
     }
     else {
