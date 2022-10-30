@@ -42,7 +42,6 @@ function refresh($time){
     echo "</pre>";
 }
 a();
-xdebug_info();
 ?>
 
 <!DOCTYPE html>
