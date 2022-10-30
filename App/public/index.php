@@ -1,9 +1,9 @@
 <?php
 
-//include '../src/DataFormatter.php';
+include '../src/DataFormatter.php';
 include '../src/PostHook.php';
 
-//$a = new DataFormatter();
+$a = new DataFormatter();
 
 //    function getallheaders()
 //    {
@@ -19,9 +19,10 @@ function a() {
 //    $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
     $class = new PostHook();
     $data = $class->getData();
+
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-        file_put_contents('data1.json', json_encode($class->headers['host']));
+        file_put_contents('data1.json', json_encode($class->headers));
         refresh( 5);
     }
     else {
