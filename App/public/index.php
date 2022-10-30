@@ -1,9 +1,9 @@
 <?php
 
-include '../src/DataFormatter.php';
+//include '../src/DataFormatter.php';
 include '../src/PostHook.php';
 
-$a = new DataFormatter();
+//$a = new DataFormatter();
 
 //    function getallheaders()
 //    {
