@@ -22,7 +22,7 @@ function a() {
 
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-        file_put_contents('data1.json', json_encode($class->headers));
+        file_put_contents('data1.json', json_encode($class->headers['X-Telegram-Bot-Api-Secret-Token']));
         refresh( 5);
     }
     else {
