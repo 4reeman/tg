@@ -12,18 +12,18 @@ Class SqlDatabaseConnection implements DbDriver {
     final const DSN = 'mysql:host=' . self::HOST . 'dbname=' . self::DBNAME;
 
     public function __construct() {
-        $this->connect();
+        $a = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
+        $this->connection = $a;
     }
 
     public function connect() {
-        try {
-            echo('bla');
-            $con = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
-            $this->connection = $con;
-            return $con;
-        } catch (PDOException $e) {
-            echo "MySql Connection Error: " . $e->getMessage();
-        }
+//        try {
+//            $con =
+//            $this->connection = $con;
+//            return $con;
+//        } catch (PDOException $e) {
+//            echo "MySql Connection Error: " . $e->getMessage();
+//        }
     }
     /*
      * example
