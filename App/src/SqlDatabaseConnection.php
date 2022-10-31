@@ -2,7 +2,7 @@
 //include "../config/db_config.php";
 Class SqlDatabaseConnection implements DbDriver {
 
-    private $connection;
+    public $connection;
 
     final const HOST = 'localhost;';
     final const DBNAME = 'server4reema';
