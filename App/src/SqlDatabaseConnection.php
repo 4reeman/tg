@@ -18,7 +18,9 @@ Class SqlDatabaseConnection implements DbDriver {
     public function connect() {
         try {
             echo('bla');
-            $this->connection = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
+            $con = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
+            $this->connection = $con;
+            return $con;
         } catch (PDOException $e) {
             echo "MySql Connection Error: " . $e->getMessage();
         }
@@ -41,7 +43,7 @@ Class SqlDatabaseConnection implements DbDriver {
             $holders .= ":$column";
         }
         try {
-            $query = "INSERT INTO user_data ($columns) VALUES ($holders)";
+            $query = "INSERT INTO `user_data` ($columns) VALUES ($holders)";
             $prepared = $this->connection->prepare($query);
             foreach ($data as $placeholder => $value) {
                 $prepared->bindValue(":$placeholder", $value);
@@ -68,7 +70,7 @@ Class SqlDatabaseConnection implements DbDriver {
             }
         }
         try {
-            $query = 'SELECT $columns FROM user_data WHERE $holders';
+            $query = 'SELECT $columns FROM `user_data` WHERE $holders';
             $prepared = $this->connection->prepare($query);
             foreach ($data as $placeholder => $value) {
                 $prepared->bindValue(":$placeholder", $value);
