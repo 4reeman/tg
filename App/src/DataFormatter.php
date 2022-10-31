@@ -48,6 +48,7 @@ class DataFormatter {
                             'url' => 'https://server4reema.vps.webdock.cloud/',
                             'request_write_access' => true
                         ]
+                        ]
                     ]
                 ]
             ];
