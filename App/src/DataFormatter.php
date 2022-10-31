@@ -41,7 +41,7 @@ class DataFormatter {
                         [
                             'text' => 'Trello Authorization',
                             'login_url' => [
-                                'url' => 'https://server4reema.vps.webdock.cloud/index.php',
+                                'url' => 'https://server4reema.vps.webdock.cloud/trello',
                                 'request_write_access' => true,
                                 'forward_text' => 'Login (forwarded)'
                             ]
