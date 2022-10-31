@@ -33,6 +33,7 @@ class DataFormatter {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
             $db = new SqlDatabaseConnection();
             echo($db->connection);
+            echo($db);
 //            $tgData = [
 //                'user_id' => $this->getUserId(),
 //                'chat_id' => $this->getChatId()

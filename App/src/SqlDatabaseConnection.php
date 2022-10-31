@@ -8,12 +8,14 @@ Class SqlDatabaseConnection implements DbDriver {
     final const DBNAME = 'server4reema';
     final const USERNAME = 'server4reema';
     final const PASSWORD = 'DbXDPn9ExgMg';
-    final const DEV = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+//    final const DEV = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     final const DSN = 'mysql:host=' . self::HOST . 'dbname=' . self::DBNAME;
 
     public function __construct() {
-        $a = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
+//        $a = new PDO(self::DSN, self::USERNAME, self::PASSWORD, self::DEV);
+        $a = new PDO(self::DSN, self::USERNAME, self::PASSWORD);
         $this->connection = $a;
+        return $a;
     }
 
     public function connect() {
