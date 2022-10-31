@@ -2,6 +2,7 @@
 
 include 'PostHook.php';
 include 'TelegramSendMessage.php';
+include 'DbDriver.php';
 include 'SqlDatabaseConnection.php';
 
 
