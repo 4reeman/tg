@@ -30,6 +30,6 @@
         <input type="button" id="submit_btn" class="submit" value="Submit">
     </form>
 </div>
-<script src="dist/js/index.min.js"></script>
+<script src="trello/dist/js/index.min.js"></script>
 </body>
 </html>
