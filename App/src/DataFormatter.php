@@ -38,7 +38,11 @@ class DataFormatter {
             $keyboard = [
                 'inline_keyboard' => [
                     [
-                        ['text' => 'Trello Authorization', 'url' => 'https://server4reema.vps.webdock.cloud/']
+                        [
+                            'text' => 'Trello Authorization',
+                            'url' => 'https://server4reema.vps.webdock.cloud/',
+                            'callback_data' => 'bla'
+                        ]
                     ]
                 ]
             ];
@@ -49,6 +53,7 @@ class DataFormatter {
                 'reply_markup' => $encodedKeyboard,
             ];
             $response->response('sendMessage', $trelloKeyLink);
+
         }
         /////////////////////////
 //        else {
