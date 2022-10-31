@@ -45,16 +45,12 @@ class DataFormatter {
 //                        ]
 //                    ]
 //                ]
-                'inline_keyboard' => [
-                    [
-                        [
                             'login_url' => [
                                 'url' => 'https://server4reema.vps.webdock.cloud/',
                                 'request_write_access' => true
                             ]
-                        ]
-                    ]
-                ]
+
+
 
             ];
             $encodedKeyboard = json_encode($keyboard);
