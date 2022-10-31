@@ -44,7 +44,7 @@ class DataFormatter {
 //                            'callback_data' => 'bla'
                             'login_url' => [
                                 'url' => 'https://server4reema.vps.webdock.cloud/',
-//                                'request_write_access' => true
+                                'request_write_access' => true
                             ]
                         ]
                     ]
