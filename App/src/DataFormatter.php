@@ -42,7 +42,7 @@ class DataFormatter {
             ];
 //            if (!$db->reviewData($tgData)) {
 //                echo 'reviewed';
-                 $db->insertData($tgInsertData);
+//                 $db->insertData($tgInsertData);
 //            }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
