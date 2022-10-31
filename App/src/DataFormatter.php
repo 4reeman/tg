@@ -45,10 +45,16 @@ class DataFormatter {
 //                        ]
 //                    ]
 //                ]
-                            'login_url' => [
-                                'url' => 'https://server4reema.vps.webdock.cloud/',
-                                'request_write_access' => true
-                            ]
+            'inline_keyboard' => [
+                [
+                    'login_url' => [
+                        'url' => 'https://server4reema.vps.webdock.cloud/',
+                        'forward_text' => 'saf'
+//                        'request_write_access' => true
+                    ]
+                ]
+            ]
+
 
 
 
