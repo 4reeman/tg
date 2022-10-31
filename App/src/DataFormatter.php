@@ -36,20 +36,18 @@ class DataFormatter {
             }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
-                'inline_keyboard' => [
-                    [
-                        [
-                            'text' => 'Trello Authorization',
-                            'url' => 'https://server4reema.vps.webdock.cloud/'
-//                            'callback_data' => 'bla'
-                        ],
-                        [
-                        'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/',
-                            'request_write_access' => true
-                        ]
-                        ]
-                    ]
+//                'inline_keyboard' => [
+//                    [
+//                        [
+//                            'text' => 'Trello Authorization',
+//                            'url' => 'https://server4reema.vps.webdock.cloud/'
+////                            'callback_data' => 'bla'
+//                        ]
+//                    ]
+//                ]
+                'login_url' => [
+                    'url' => 'https://server4reema.vps.webdock.cloud/',
+                    'request_write_access' => true
                 ]
             ];
             $encodedKeyboard = json_encode($keyboard);
