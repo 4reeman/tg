@@ -39,7 +39,7 @@ class DataFormatter {
                 'inline_keyboard' => [
                     [
                         [
-                            'text' => 'Trello Authorization',
+//                            'text' => 'Trello Authorization',
 //                            'url' => 'https://server4reema.vps.webdock.cloud/',
 //                            'callback_data' => 'bla'
                             'login_url' => [
