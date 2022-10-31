@@ -40,9 +40,9 @@ class DataFormatter {
                 'user_name' => $this->getUserName(),
                 'chat_id' => $this->getChatId()
             ];
-            if (!$db->reviewData($tgData)) {
+//            if (!$db->reviewData($tgData)) {
                  $db->insertData($tgInsertData);
-            }
+//            }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
                 'inline_keyboard' => [
