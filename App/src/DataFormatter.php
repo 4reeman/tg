@@ -51,7 +51,8 @@ class DataFormatter {
             $encodedKeyboard = json_encode($keyboard);
             $trelloKeyLink = [
                 'chat_id' => $this->getChatId(),
-                'text' => 'Tap this one',
+                'text' => 'You need to connect your Telegram account 
+                with our server to use the functionality of this bot in full',
                 'reply_markup' => $encodedKeyboard,
             ];
             $response->response('sendMessage', $trelloKeyLink);
