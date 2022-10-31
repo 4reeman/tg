@@ -2,7 +2,7 @@
 
 include 'PostHook.php';
 include 'TelegramSendMessage.php';
-include 'SqlDatabaseConnection.php';
+//include 'SqlDatabaseConnection.php';
 
 class DataFormatter {
 
@@ -30,19 +30,19 @@ class DataFormatter {
 //        $response->response('restrictChatMember', $par);
         if ($this->getMessage() == '/start') {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
-            $db = new SqlDatabaseConnection();
-            $tgData = [
-                'user_id' => $this->getUserId(),
-                'chat_id' => $this->getChatId()
-            ];
-            $tgInsertData = [
-                'user_id' => $this->getUserId(),
-                'user_name' => $this->getUserName(),
-                'chat_id' => $this->getChatId()
-            ];
-//            if (!$db->reviewData($tgData)) {
-                 $db->insertData($tgInsertData);
-//            }
+//            $db = new SqlDatabaseConnection();
+//            $tgData = [
+//                'user_id' => $this->getUserId(),
+//                'chat_id' => $this->getChatId()
+//            ];
+//            $tgInsertData = [
+//                'user_id' => $this->getUserId(),
+//                'user_name' => $this->getUserName(),
+//                'chat_id' => $this->getChatId()
+//            ];
+////            if (!$db->reviewData($tgData)) {
+//                 $db->insertData($tgInsertData);
+////            }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
             $keyboard = [
                 'inline_keyboard' => [
