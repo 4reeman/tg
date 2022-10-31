@@ -41,7 +41,11 @@ class DataFormatter {
                         [
                             'text' => 'Trello Authorization',
 //                            'url' => 'https://server4reema.vps.webdock.cloud/',
-                            'callback_data' => 'bla'
+//                            'callback_data' => 'bla'
+                            'login_url' => [
+                                'url' => 'https://server4reema.vps.webdock.cloud/',
+//                                'request_write_access' => true
+                            ]
                         ]
                     ]
                 ]
