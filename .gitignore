@@ -1,4 +1,5 @@
 node_modules/
+phpmyadmin/
 logs/
 App/public/dist
 package-lock.json
