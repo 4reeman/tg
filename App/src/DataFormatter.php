@@ -48,7 +48,7 @@ class DataFormatter {
             'inline_keyboard' => [
                 [
                     'login_url' => [
-                        'url' => 'https://server4reema.vps.webdock.cloud/',
+                        'url' => 'https://oauth.telegram.org/auth?bot_id=5793129764&origin=https%3A%2F%2Fserver4reema.vps.webdock.cloud&embed=1&request_access=write&return_to=https%3A%2F%2Fserver4reema.vps.webdock.cloud%2F',
                         'forward_text' => 'saf'
 //                        'request_write_access' => true
                     ]
