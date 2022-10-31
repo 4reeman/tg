@@ -31,7 +31,7 @@ class DataFormatter {
 //        $response->response('restrictChatMember', $par);
         if ($this->getMessage() == '/start') {
             $response->response('sendMessage', ['chat_id' => $this->getChatId(), 'text' => 'Hi, ' . $this->getUserName()]);
-            new SqlDatabaseConnection();
+//            new SqlDatabaseConnection();
 //            $tgData = [
 //                'user_id' => $this->getUserId(),
 //                'chat_id' => $this->getChatId()
