@@ -59,14 +59,16 @@ Class SqlDatabaseConnection implements DbDriver {
             $columns .= ($columns == "") ? "" : ", ";
             $columns .= $column;
             $holders .= ($holders == "") ? "" : "AND";
-            $holders .= "$column = :$column ";
+            $holders .= "$column=? ";
         }
         try {
             $query = "SELECT $columns FROM `user_data` WHERE $holders";
             $prepared = $this->connection->prepare($query);
+            $bla = [];
             foreach ($data as $placeholder => $value) {
-                $prepared->bindValue(":$placeholder", $value);
+                array_push($bla, $value);
             }
+            $prepared->bindValue($bla);
             $prepared->execute();
             return $prepared->rowCount();
         } catch (Exception $e) {
