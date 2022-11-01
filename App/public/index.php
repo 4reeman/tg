@@ -21,7 +21,7 @@ function a() {
 
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-//        file_put_contents('data1.json', json_encode($class->headers['X-Telegram-Bot-Api-Secret-Token']));
+        file_put_contents('data1.json', json_encode(getallheaders()));//['X-Telegram-Bot-Api-Secret-Token']
         refresh( 5);
     }
     else {
@@ -32,15 +32,15 @@ function refresh($time){
     $current_url = $_SERVER[ 'REQUEST_URI' ];
     header( "Refresh: " . $time . "; URL=$current_url" );
     $ret = json_decode(file_get_contents('data.json'), true);
-//    $ret1 = json_decode(file_get_contents('data1.json'), true);
+    $ret1 = json_decode(file_get_contents('data1.json'), true);
 //    echo $ret['message']['from']['first_name'];
 //    echo $ret['message']['chat']['id'];
     echo "<pre>";
     print_r($ret);
     echo "</pre>";
-//    echo "<pre>";
-//    print_r($ret1);
-//    echo "</pre>";
+    echo "<pre>";
+    print_r($ret1);
+    echo "</pre>";
 }
 a();
 ?>

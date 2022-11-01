@@ -1,7 +1,7 @@
 
 let btn = $('#submit_btn');
 
-function sendData() {
+function validateKey() {
     let key =  $('#api_key').val()
     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + key;
     $.ajax({
@@ -16,7 +16,7 @@ function sendData() {
     });
 }
 btn.on('click', ()=>{
-   sendData();
+   validateKey();
 });
 
 const queryString = window.location.search;
