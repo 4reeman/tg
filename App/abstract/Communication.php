@@ -1,7 +1,7 @@
 <?php
 
 abstract class Communication {
-    abstract public function getCommunicator(): Hook;
+    abstract public function getCommunicator(Hook $hook): Hook;
 
     public function someOperations() {
         $product = $this->getCommunicator();
