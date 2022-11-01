@@ -1,5 +1,5 @@
 <?php
 
 interface SendMessageInterface {
-    public function send();
+    public function send($method, $parameters);
 }
