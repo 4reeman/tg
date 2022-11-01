@@ -25,7 +25,7 @@ class TelegramCommunication {
 
     }
 
-    private function startResponse() {
+    public function startResponse() {
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'Hi, ' . $this->data->getUserName()]);
 //        $tgData = [
 //            'user_id' => $this->data->getUserId(),
