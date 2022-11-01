@@ -51,7 +51,7 @@ Class SqlDatabaseConnection implements DbDriver {
         }
     }
 
-// don`t work
+// rework
     function reviewData($data) {
         $columns = "";
         $holders = "";
