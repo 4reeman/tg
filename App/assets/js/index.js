@@ -1,23 +1,23 @@
-
-let btn = $('#submit_btn');
-
-function sendData() {
-    let key =  $('#api_key').val()
-    let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + key;
-    $.ajax({
-        type: 'GET',
-        url: url,
-        success: function(data, textStatus, jqXHR){
-            console.log(textStatus + ": " + jqXHR.status);
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-            console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
-        }
-    });
-}
-btn.on('click', ()=>{
-   sendData();
-});
+//
+// let btn = $('#submit_btn');
+//
+// function sendData() {
+//     let key =  $('#api_key').val()
+//     let url = 'https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + key;
+//     $.ajax({
+//         type: 'GET',
+//         url: url,
+//         success: function(data, textStatus, jqXHR){
+//             console.log(textStatus + ": " + jqXHR.status);
+//         },
+//         error: function(jqXHR, textStatus, errorThrown){
+//             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+//         }
+//     });
+// }
+// btn.on('click', ()=>{
+//    sendData();
+// });
 
 const queryString = window.location.search;
 console.log(getAllUrlParams(queryString));
