@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class='main'>
-    <form id="validation" class="form_validation" method="post" action="https://server4reema.vps.webdock.cloud/">
+    <form id="validation" class="form_validation">
         <div class="help_form">
             <button type="button" class="accordion">Where can i take a Personal Key</button>
             <div class="panels">
@@ -27,7 +27,7 @@
         </div>
         <label for="api_key">Your Personal Key:</label>
         <input type="text" id="api_key">
-        <input type="submit" id="submit_btn" class="submit" value="Submit">
+        <input type="button" id="submit_btn" class="submit" value="Submit">
     </form>
 </div>
 <script src="trello/dist/js/index.min.js"></script>
