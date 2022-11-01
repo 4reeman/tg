@@ -58,13 +58,8 @@ Class SqlDatabaseConnection implements DbDriver {
         foreach ($data as $column => $value) {
             $columns .= ($columns == "") ? "" : ", ";
             $columns .= $column;
-            $holders .= ($holders == "") ? "" : ", ";
-            if(!$column === array_key_last($data)) {
-                $holders .= ":$column=? AND";
-            }
-            else {
-                $holders .= ":$column=?";
-            }
+            $holders .= ($holders == "") ? "" : "AND";
+            $holders .= "$column = :$column ";
         }
         try {
             $query = "SELECT $columns FROM `user_data` WHERE $holders";
