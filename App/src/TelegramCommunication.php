@@ -2,14 +2,15 @@
 
 class TelegramCommunication {
 
-    private $data;
-    private $response;
-    private $db;
+    public $data;
+    public $response;
+    public $db;
 
     public function __construct(TelegramOwn $data, SendMessageInterface $response, DbDriver $db) {
         $this->data = $data;
         $this->response = $response;
         $this->db = $db;
+        $this->communicate();
     }
 
     public function communicate() {
