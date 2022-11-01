@@ -2,7 +2,7 @@
 //include "../config/db_config.php";
 Class SqlDatabaseConnection implements DbDriver {
 
-    private $connection;
+    public $connection;
 
     final const HOST = 'localhost;';
     final const DBNAME = 'server4reema';
@@ -12,16 +12,17 @@ Class SqlDatabaseConnection implements DbDriver {
     final const DSN = 'mysql:host=' . self::HOST . 'dbname=' . self::DBNAME;
 
     public function __construct() {
-       $this->connect();
-    }
-
-    public function connect() {
         try {
             $pdo = new PDO(self::DSN, self::USERNAME, self::PASSWORD);
             $this->connection = $pdo;
         } catch (PDOException $e) {
             echo "MySql Connection Error: " . $e->getMessage();
         }
+//       $this->connect();
+    }
+
+    public function connect() {
+        return 'ok';
     }
     /*
      * example
