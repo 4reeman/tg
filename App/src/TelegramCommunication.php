@@ -13,15 +13,11 @@ class TelegramCommunication {
     }
 
     public function communicate() {
-//        switch ($this->data->getMessage()) {
-//            case '/start':
-//                $this->startResponse();
-//                break;
-//        }
-        if ($this->data->getMessage() == '/start'){
-            $this->startResponse();
+        switch ($this->data->getMessage()) {
+            case '/start':
+                $this->startResponse();
+                break;
         }
-
     }
 
     public function startResponse() {
