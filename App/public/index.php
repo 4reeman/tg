@@ -1,7 +1,5 @@
 <?php
 
-
-
 include '../src/DataFormatter.php';
 
 $a = new DataFormatter();

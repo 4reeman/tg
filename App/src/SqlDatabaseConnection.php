@@ -51,7 +51,7 @@ Class SqlDatabaseConnection implements DbDriver {
         }
     }
 
-
+// don`t work
     function reviewData($data) {
         $columns = "";
         $holders = "";
@@ -60,7 +60,7 @@ Class SqlDatabaseConnection implements DbDriver {
             $columns .= $column;
             $holders .= ($holders == "") ? "" : ", ";
             if(!$column === array_key_last($data)) {
-                $holders .= ":$column AND";
+                $holders .= ":$column=? AND";
             }
             else {
                 $holders .= ":$column=?";
