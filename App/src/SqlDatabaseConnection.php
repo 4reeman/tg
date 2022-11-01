@@ -68,7 +68,7 @@ Class SqlDatabaseConnection implements DbDriver {
             foreach ($data as $placeholder => $value) {
                 array_push($bla, $value);
             }
-            $prepared->bindValue($bla);
+            $prepared->bindValue([$bla[0], $bla[1]]);
             $prepared->execute();
             return $prepared->rowCount();
         } catch (Exception $e) {
