@@ -58,18 +58,17 @@ Class SqlDatabaseConnection implements DbDriver {
         foreach ($data as $column => $value) {
             $columns .= ($columns == "") ? "" : ", ";
             $columns .= $column;
-            $holders .= ($holders == "") ? "" : "AND";
-            $holders .= "$column=? ";
+            $holders .= ($holders == "") ? "" : " AND ";
+            $holders .= "$column=?";
         }
         try {
             $query = "SELECT $columns FROM `user_data` WHERE $holders";
             $prepared = $this->connection->prepare($query);
-            $bla = [];
+            $arr=[];
             foreach ($data as $placeholder => $value) {
-                array_push($bla, $value);
+                array_push($arr, $value);
             }
-            $prepared->bindValue([$bla[0], $bla[1]]);
-            $prepared->execute();
+            $prepared->execute($arr);
             return $prepared->rowCount();
         } catch (Exception $e) {
             file_put_contents('my_log.txt', "Database error reviewData: " . $e->getMessage());

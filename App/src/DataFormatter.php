@@ -43,7 +43,6 @@ class DataFormatter {
                 'chat_id' => $this->getChatId()
             ];
             if (!$db->reviewData($tgData)) {
-                echo 'reviewed';
                  $db->insertData($tgInsertData);
             }
             $response->response('sandMessage', ['chat_id' => $this->getChatId(), 'pls, copy your personal key']);
