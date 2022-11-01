@@ -67,7 +67,7 @@ Class SqlDatabaseConnection implements DbDriver {
             }
         }
         try {
-            $query = 'SELECT $columns FROM `user_data` WHERE $holders';
+            $query = "SELECT $columns FROM `user_data` WHERE $holders";
             $prepared = $this->connection->prepare($query);
             foreach ($data as $placeholder => $value) {
                 $prepared->bindValue(":$placeholder", $value);
