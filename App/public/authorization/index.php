@@ -43,6 +43,9 @@ function saveTelegramUserData($auth_data)
     }
     print_r($_REQUEST);
     echo ('asdf');
+if ($_SERVER["QUERY_STRING"] == null){
+    echo 'url empty';
+}
 //    print_r($_GET);
 //    var_export($_GET);
 //    print_r($_SERVER['QUERY_STRING']);
