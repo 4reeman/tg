@@ -16,7 +16,8 @@ function checkTelegramAuthorization($auth_data)
     $hash = hash_hmac('sha256', $data_check_string, $secret_key);
     if (strcmp($hash, $check_hash) !== 0)
     {
-        throw new Exception('Data is NOT from Telegram' . print_r($_GET));
+        print_r($_GET);
+//        throw new Exception('Data is NOT from Telegram') ;
     }
     if ((time() - $auth_data['auth_date']) > 86400)
     {
