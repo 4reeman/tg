@@ -19,7 +19,7 @@ function checkTelegramAuthorization($auth_data)
         print_r($_GET);
 //        throw new Exception('Data is NOT from Telegram') ;
     }
-    if ((time() - $auth_data['auth_date']) > 86400)
+    if ((time() - $auth_data['auth_date']) > 864000)
     {
         throw new Exception('Data is outdated');
     }
