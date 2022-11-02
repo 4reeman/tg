@@ -41,5 +41,5 @@ catch(Exception $e)
     die($e->getMessage());
 }
 
-header('Location: index.php');
+//header('Location: index.php');
 ?>
