@@ -34,15 +34,7 @@ function saveTelegramUserData($auth_data)
 }
 
 
-    echo ($_GET['hash']);
-    if(empty($_REQUEST)) {
-
-    }
-    if(empty($_GET)) {
-        echo 'get empty';
-    }
-    print_r($_REQUEST);
-    echo ('asdf');
+var_dump($_GET);
 if ($_SERVER["QUERY_STRING"] == null){
     echo 'url empty';
 }
