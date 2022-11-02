@@ -33,8 +33,7 @@ function saveTelegramUserData($auth_data)
 //    setcookie('tg_user', $auth_data_json);
 }
 
-try
-{
+
     echo ($_GET['hash']);
     if(empty($_REQUEST)) {
 
@@ -50,11 +49,6 @@ try
 //    var_export($_SERVER['QUERY_STRING']);
 //    $auth_data = checkTelegramAuthorization($_GET);
 //    saveTelegramUserData($auth_data);
-}
-catch(Exception $e)
-{
-    die($e->getMessage());
-}
 
 //header('Location: index.php');
 ?>
