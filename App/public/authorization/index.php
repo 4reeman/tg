@@ -1,6 +1,7 @@
 <?php
 define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw'); // place bot token of your bot here
 var_dump($_GET);
+print_r($_SERVER);
 if ($_SERVER["QUERY_STRING"] == null){
     echo 'url empty';
 }
