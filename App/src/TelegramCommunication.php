@@ -44,6 +44,9 @@ class TelegramCommunication {
                             'request_write_access' => true,
                             'forward_text' => 'Login (forwarded)'
                         ]
+                    ],
+                    [
+                        
                     ]
                 ]
             ]

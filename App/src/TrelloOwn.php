@@ -1,6 +1,10 @@
 <?php
  class TrelloOwn implements InputDataInterface {
-     private $data;
+     public $data;
+
+     public function __construct() {
+
+     }
 
      public function getData() {
          $http_body = file_get_contents("php://input");  // exploit change! don`t use file_get_contents
