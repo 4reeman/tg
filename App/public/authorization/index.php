@@ -35,10 +35,11 @@ function saveTelegramUserData($auth_data)
 
 try
 {
-    print_r($_GET);
-    var_export($_GET);
-    print_r($_SERVER['QUERY_STRING']);
-    var_export($_SERVER['QUERY_STRING']);
+    echo ($_GET['hash']);
+//    print_r($_GET);
+//    var_export($_GET);
+//    print_r($_SERVER['QUERY_STRING']);
+//    var_export($_SERVER['QUERY_STRING']);
 //    $auth_data = checkTelegramAuthorization($_GET);
 //    saveTelegramUserData($auth_data);
 }
