@@ -22,19 +22,20 @@ function checkTelegramAuthorization($auth_data)
     {
         throw new Exception('Data is outdated');
     }
+    echo($auth_data);
     return $auth_data;
 }
 
 function saveTelegramUserData($auth_data)
 {
     $auth_data_json = json_encode($auth_data);
-    setcookie('tg_user', $auth_data_json);
+//    setcookie('tg_user', $auth_data_json);
 }
 
 try
 {
     $auth_data = checkTelegramAuthorization($_GET);
-    saveTelegramUserData($auth_data);
+//    saveTelegramUserData($auth_data);
 }
 catch(Exception $e)
 {
