@@ -14,16 +14,16 @@ function checkTelegramAuthorization($auth_data)
     $data_check_string = implode("\n", $data_check_arr);
     $secret_key = hash('sha256', BOT_TOKEN, true);
     $hash = hash_hmac('sha256', $data_check_string, $secret_key);
-    if (strcmp($hash, $check_hash) !== 0)
-    {
-        print_r($_GET);
+//    if (strcmp($hash, $check_hash) !== 0)
+//    {
+//        print_r($_GET);
 //        throw new Exception('Data is NOT from Telegram') ;
-    }
-    if ((time() - $auth_data['auth_date']) > 864000)
-    {
-        throw new Exception('Data is outdated');
-    }
-    echo($auth_data);
+//    }
+//    if ((time() - $auth_data['auth_date']) > 86400)
+//    {
+//        throw new Exception('Data is outdated');
+//    }
+    print_r($_GET);
     return $auth_data;
 }
 
