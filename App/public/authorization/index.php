@@ -36,6 +36,7 @@ function saveTelegramUserData($auth_data)
 try
 {
     echo ($_GET['hash']);
+    print_r($_REQUEST);
     echo ('asdf');
 //    print_r($_GET);
 //    var_export($_GET);
