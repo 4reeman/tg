@@ -1,6 +1,9 @@
 <?php
 define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw'); // place bot token of your bot here
-
+var_dump($_GET);
+if ($_SERVER["QUERY_STRING"] == null){
+    echo 'url empty';
+}
 function checkTelegramAuthorization($auth_data)
 {
     $check_hash = $auth_data['hash'];
@@ -33,11 +36,6 @@ function saveTelegramUserData($auth_data)
 //    setcookie('tg_user', $auth_data_json);
 }
 
-
-var_dump($_GET);
-if ($_SERVER["QUERY_STRING"] == null){
-    echo 'url empty';
-}
 //    print_r($_GET);
 //    var_export($_GET);
 //    print_r($_SERVER['QUERY_STRING']);
