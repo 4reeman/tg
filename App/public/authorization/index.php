@@ -37,7 +37,7 @@ try
 {
     print_r($_GET);
     print_r($_SERVER['QUERY_STRING']);
-    $auth_data = checkTelegramAuthorization($_GET);
+//    $auth_data = checkTelegramAuthorization($_GET);
 //    saveTelegramUserData($auth_data);
 }
 catch(Exception $e)
