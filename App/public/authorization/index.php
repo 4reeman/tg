@@ -23,7 +23,7 @@ function checkTelegramAuthorization($auth_data)
 //    {
 //        throw new Exception('Data is outdated');
 //    }
-    print_r($_GET);
+
     return $auth_data;
 }
 
@@ -36,6 +36,7 @@ function saveTelegramUserData($auth_data)
 try
 {
     $auth_data = checkTelegramAuthorization($_GET);
+    print_r($_GET);
 //    saveTelegramUserData($auth_data);
 }
 catch(Exception $e)
