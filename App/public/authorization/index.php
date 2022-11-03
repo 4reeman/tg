@@ -7,7 +7,8 @@ define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw'); // place 
 //if ($_SERVER["QUERY_STRING"] == null){
 //    echo 'url empty';
 //}
-phpinfo();
+//phpinfo();
+print_r($_GET);
 function checkTelegramAuthorization($auth_data)
 {
     $check_hash = $auth_data['hash'];
