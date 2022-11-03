@@ -13,22 +13,21 @@ function a() {
     $data=json_decode(file_get_contents("php://input"),true, 20, JSON_OBJECT_AS_ARRAY);
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-        refresh( 100 );
+        file_put_contents('data1.json', json_encode(getallheaders()));
+        refresh( 3 );
     }
     else {
         echo (is_object($data));
-        refresh( 100);
+        refresh( 3);
     }
 }
 function refresh($time){
     $current_url = $_SERVER[ 'REQUEST_URI' ];
     header( "Refresh: " . $time . "; URL=$current_url" );
     $ret = json_decode(file_get_contents('data.json'), true);
-    echo $ret['message']['from']['first_name'];
-    echo $ret['message']['from']['id'];
-    echo "<pre>";
-    print_r($ret);
-    echo "</pre>";
+    $ret1 = json_decode(file_get_contents('data1.json'), true);
+    var_dump($ret);
+    var_dump($ret1);
 }
 a();
 
