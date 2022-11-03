@@ -28,17 +28,17 @@ function refresh($time){
     $ret1 = json_decode(file_get_contents('data1.json'), true);
 //    var_dump($ret);
     var_dump($ret1);
+    $tg_header = $ret1["X-Telegram-Bot-Api-Secret-Token"];
+    echo '</br>';
+    echo $tg_header;
 }
 a();
 
-$header =  json_decode(getallheaders(), true);
-$tg_header = $header["X-Telegram-Bot-Api-Secret-Token"];
-echo '</br>';
-echo $tg_header;
-if($header == 'telegram') {
-    $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
-    $tg->communicate();
-}
+
+//if($header == 'telegram') {
+//    $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
+//    $tg->communicate();
+//}
 //else {
 //
 //}
