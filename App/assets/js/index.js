@@ -30,8 +30,8 @@ function sendApiKey(key) {
             "Resource":"webdock"
         },
         data: {
-            user_id:getAllUrlParams(queryString).id,
-            api_key:key
+            user_id:encodeURIComponent(getAllUrlParams(queryString).id),
+            api_key:encodeURIComponent(key)
         },
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);

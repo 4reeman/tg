@@ -31,14 +31,15 @@ function refresh($time){
     $tg_header = $ret1["X-Telegram-Bot-Api-Secret-Token"];
     echo '</br>';
     echo $tg_header;
+
 }
 a();
 
+$tg_header = 'telegram';
 
-//if($header == 'telegram') {
-//    $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
-//    $tg->communicate();
-//}
-//else {
-//
-//}
+if($tg_header == 'telegram') {
+    $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
+    $tg->communicate();
+}
+
+
