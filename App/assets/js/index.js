@@ -9,9 +9,11 @@ function validateKey() {
         url: url,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
+            sendApiKey(key);
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+            alert('Invalid Personal Key');
         }
     });
 }
@@ -19,29 +21,29 @@ btn.on('click', ()=>{
    validateKey();
 });
 
-// function sendApiKey(key) {
-//     let url = 'https://server4reema.vps.webdock.cloud/';
-//     $.ajax({
-//         type: 'POST',
-//         url: url,
-//         headers: {
-//             "Resource":"webdock"
-//         },
-//         data: {
-//             user_id:getAllUrlParams(queryString).id,
-//             api_key:key
-//         },
-//         success: function(data, textStatus, jqXHR){
-//             console.log(textStatus + ": " + jqXHR.status);
-//         },
-//         error: function(jqXHR, textStatus, errorThrown){
-//             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
-//         }
-//     });
-// }
+function sendApiKey(key) {
+    let url = 'https://server4reema.vps.webdock.cloud/';
+    $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {
+            "Resource":"webdock"
+        },
+        data: {
+            user_id:getAllUrlParams(queryString).id,
+            api_key:key
+        },
+        success: function(data, textStatus, jqXHR){
+            console.log(textStatus + ": " + jqXHR.status);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+        }
+    });
+}
 
 const queryString = window.location.search;
-console.log(getAllUrlParams(queryString).id);
+
 function getAllUrlParams(url) {
 
     // get query string from url (optional) or window
