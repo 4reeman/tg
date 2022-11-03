@@ -24,15 +24,16 @@ function a() {
 function refresh($time){
     $current_url = $_SERVER[ 'REQUEST_URI' ];
     header( "Refresh: " . $time . "; URL=$current_url" );
-    $ret = json_decode(file_get_contents('data.json'), true);
+//    $ret = json_decode(file_get_contents('data.json'), true);
     $ret1 = json_decode(file_get_contents('data1.json'), true);
-    var_dump($ret);
+//    var_dump($ret);
     var_dump($ret1);
 }
 a();
 
 $header =  json_decode(getallheaders(), true);
 $tg_header = $header["X-Telegram-Bot-Api-Secret-Token"];
+echo '</br>';
 echo $tg_header;
 if($header == 'telegram') {
     $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
