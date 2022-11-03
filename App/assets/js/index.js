@@ -22,7 +22,6 @@ btn.on('click', ()=>{
 });
 
 function sendApiKey(key) {
-    alert(key);
     let url = 'https://server4reema.vps.webdock.cloud/';
     $.ajax({
         type: 'POST',
