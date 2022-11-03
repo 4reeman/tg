@@ -1,4 +1,3 @@
-
 let btn = $('#submit_btn');
 
 function validateKey() {
@@ -17,6 +16,7 @@ function validateKey() {
         }
     });
 }
+
 btn.on('click', ()=>{
    validateKey();
 });
