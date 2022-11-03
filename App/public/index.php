@@ -31,8 +31,9 @@ function refresh($time){
 }
 a();
 
-$header = 'telegram';
-
+$header =  json_decode(getallheaders(), true);
+$tg_header = $header["X-Telegram-Bot-Api-Secret-Token"];
+echo $tg_header;
 if($header == 'telegram') {
     $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
     $tg->communicate();
