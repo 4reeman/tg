@@ -40,7 +40,7 @@ function saveTelegramUserData($auth_data)
 try
 {
     $auth_data = checkTelegramAuthorization($_GET);
-    echo $auth_data;
+    print_r($auth_data);
 //    saveTelegramUserData($auth_data);
 }
 catch(Exception $e)
