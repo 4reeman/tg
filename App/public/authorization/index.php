@@ -7,6 +7,7 @@ define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw'); // place 
 //if ($_SERVER["QUERY_STRING"] == null){
 //    echo 'url empty';
 //}
+phpinfo();
 function checkTelegramAuthorization($auth_data)
 {
     $check_hash = $auth_data['hash'];
@@ -43,8 +44,8 @@ function saveTelegramUserData($auth_data)
     var_export($_GET);
     print_r($_SERVER['QUERY_STRING']);
     var_export($_SERVER['QUERY_STRING']);
-    $auth_data = checkTelegramAuthorization($_GET);
-    saveTelegramUserData($auth_data);
+    checkTelegramAuthorization($_GET);
+//    saveTelegramUserData($auth_data);
 
 //header('Location: index.php');
 ?>
