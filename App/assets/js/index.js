@@ -31,10 +31,13 @@ function sendApiKey(key) {
         type: 'POST',
         url: 'index.php',
         contentType: 'application/json',
-        data: JSON.stringify(dat),
-        headers: {
-            'source':'webdock'
+        data: {
+            user_id:getAllUrlParams(queryString).id,
+            api_key:key
         },
+        // headers: {
+        //     'source':'webdock'
+        // },
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
