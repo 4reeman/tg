@@ -22,7 +22,7 @@ btn.on('click', ()=>{
 });
 
 function sendApiKey(key) {
-    let url = 'index.php';
+    let url = 'https://server4reema.vps.webdock.cloud/index.php';
     // let dat = {
     //     user_id:encodeURIComponent(getAllUrlParams(queryString).id),
     //     api_key:encodeURIComponent(key)
