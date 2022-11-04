@@ -31,6 +31,7 @@ function sendApiKey(key) {
         type: 'POST',
         url: 'index.php',
         contentType: 'application/json',
+        crossDomain: false,
         data: {
             user_id:getAllUrlParams(queryString).id,
             api_key:key
