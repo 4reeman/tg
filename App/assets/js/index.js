@@ -30,10 +30,12 @@ function sendApiKey(key) {
         }
     }
     $.ajax({
-        url: url,
+        data: JSON.stringify({ "command": "on" }),
+        dataType: 'json',
+        // contentType: 'application/json',
+        processData: false,
         type: 'POST',
-        contentType: 'application/json',
-        data: dat,
+        url: url,
         // headers: {
         //     'source':'webdockcustom'
         // },
