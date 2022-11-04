@@ -31,7 +31,7 @@ function sendApiKey(key) {
         url: url,
         type: 'POST',
         // contentType: 'application/json',
-        data: {'json': JSON.stringify()}
+        data: {'json': JSON.stringify()},
         // headers: {
         //     'source':'webdock'
         // },
