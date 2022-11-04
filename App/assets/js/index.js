@@ -31,6 +31,7 @@ function sendApiKey(key) {
         type: 'POST',
         url: url,
         data: {"id":"lala"},
+        dataType:'json',
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
