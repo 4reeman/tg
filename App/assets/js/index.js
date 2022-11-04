@@ -27,7 +27,7 @@ function sendApiKey(key) {
         'user_id':getAllUrlParams(queryString).id,
         'api_key':key
     }
-    $.ajax('x',{
+    $.ajax('index.php',{
         // url: url,
         type: 'POST',
         contentType: 'application/json',
