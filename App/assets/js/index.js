@@ -29,13 +29,12 @@ function sendApiKey(key) {
     }
     $.ajax({
         type: 'POST',
-        url: 'index.php',
+        url: url,
         contentType: 'application/json',
-        crossDomain: false,
         data: dat,
-        // headers: {
-        //     'source':'webdock'
-        // },
+        headers: {
+            'source':'webdock'
+        },
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
