@@ -24,7 +24,7 @@ btn.on('click', ()=>{
 function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
     let dat = {
-        "all": {
+        "data": {
             'user_id':String(getAllUrlParams(queryString).id),
             'api_key':String(key)
         }
@@ -33,7 +33,7 @@ function sendApiKey(key) {
         url: url,
         type: 'POST',
         // contentType: 'application/json',
-        data: JSON.stringify({ "command": "on" }),
+        data: JSON.stringify(dat),
         headers: {
             "Accept": "application/json; odata=verbose"
         },
