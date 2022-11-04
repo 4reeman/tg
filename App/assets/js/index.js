@@ -31,12 +31,10 @@ function sendApiKey(key) {
         url: url,
         type: 'POST',
         contentType: 'application/json',
-        async: true,
-        dataType: 'json',
         data: dat,
-        headers: {
-            'source':'webdockcustom'
-        },
+        // headers: {
+        //     'source':'webdockcustom'
+        // },
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
         },
