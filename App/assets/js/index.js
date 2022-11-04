@@ -37,6 +37,7 @@ function sendApiKey(key) {
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
+            alert(key);
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
