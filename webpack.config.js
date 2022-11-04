@@ -6,7 +6,7 @@ module.exports = {
         __dirname + '/App/assets/scss/style.scss'
     ],
     output: {
-        path: path.resolve(__dirname + '/App/public/trello', 'dist'),
+        path: path.resolve(__dirname + '/App/public', 'dist'),
         filename: 'js/index.min.js',
     },
     module: {
