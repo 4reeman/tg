@@ -29,9 +29,11 @@ function sendApiKey(key) {
     // }
     $.ajax({
         type: 'POST',
-        url: url,
+        url: 'https://server4reema.vps.webdock.cloud/index.php',
+        headers: {
+            'source':'webdock'
+        },
         data: {"id":"lala"},
-        dataType:'json',
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
