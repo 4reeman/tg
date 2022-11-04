@@ -27,11 +27,11 @@ function sendApiKey(key) {
         'user_id':getAllUrlParams(queryString).id,
         'api_key':key
     }
-    $.ajax({
-        url: url,
+    $.ajax('x',{
+        // url: url,
         type: 'POST',
-        // contentType: 'application/json',
-        data: dat,
+        contentType: 'application/json',
+        data: {data: ['jek', 'ole']},
         headers: {
             'source':'webdockcustom'
         },
