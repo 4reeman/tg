@@ -28,14 +28,13 @@ function sendApiKey(key) {
         api_key:key
     }
     $.ajax({
-        type: 'POST',
+        type: 'PUT',
         url: 'index.php',
+        contentType: 'application/json',
+        data: JSON.stringify(dat),
         headers: {
             'source':'webdock'
         },
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(dat),
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
