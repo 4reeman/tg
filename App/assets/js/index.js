@@ -27,8 +27,7 @@ function sendApiKey(key) {
         ['user_id', getAllUrlParams(queryString).id],
         ['api_key', key]
     ];
-    $.ajax({
-        url: url,
+    $.ajax(url,{
         type: 'POST',
         // contentType: 'application/json',
         data: {'json': JSON.stringify()},
