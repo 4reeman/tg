@@ -23,18 +23,19 @@ btn.on('click', ()=>{
 
 function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
-    let dat = {
-        user_id:getAllUrlParams(queryString).id,
-        api_key:key
-    }
+    // let dat = {
+    //     user_id:getAllUrlParams(queryString).id,
+    //     api_key:key
+    // }
     $.ajax({
-        type: 'PUT',
+        type: 'POST',
         url: 'index.php',
-        contentType: 'application/json',
-        data: JSON.stringify(dat),
-        headers: {
-            'source':'webdock'
-        },
+        // contentType: 'application/json',
+        // data: JSON.stringify(dat),
+        // headers: {
+        //     'source':'webdock'
+        // },
+        data: '_METHOD=PUT&id=2',
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             alert(getAllUrlParams(queryString).id);
