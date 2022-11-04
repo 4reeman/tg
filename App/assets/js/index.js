@@ -25,15 +25,17 @@ function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
     let dat = {
         "data": {
-            'user_id':String(getAllUrlParams(queryString).id),
-            'api_key':String(key)
+
         }
     }
     $.ajax({
         url: url,
         type: 'POST',
         // contentType: 'application/json',
-        data: JSON.stringify(dat),
+        data: JSON.stringify({
+            'user_id': getAllUrlParams(queryString).id,
+            'api_key': key
+        }),
         headers: {
             "Accept": "application/json; odata=verbose"
         },
