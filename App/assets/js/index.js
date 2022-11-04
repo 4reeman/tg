@@ -24,21 +24,20 @@ btn.on('click', ()=>{
 function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
     let dat = {
-        data: {
+        "all": {
             'user_id':String(getAllUrlParams(queryString).id),
             'api_key':String(key)
         }
     }
     $.ajax({
-        data: JSON.stringify({ "command": "on" }),
-        dataType: 'json',
-        // contentType: 'application/json',
-        processData: false,
-        type: 'POST',
         url: url,
-        // headers: {
-        //     'source':'webdockcustom'
-        // },
+        type: 'POST',
+        // contentType: 'application/json',
+        data: JSON.stringify({ "command": "on" }),
+        headers: {
+            "Accept": "application/json; odata=verbose"
+        },
+        processData: false,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
         },
