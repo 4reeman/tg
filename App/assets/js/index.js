@@ -23,17 +23,16 @@ btn.on('click', ()=>{
 
 function sendApiKey(key) {
     let url = 'index.php';
-    let dat = {
-        user_id:encodeURIComponent(getAllUrlParams(queryString).id),
-        api_key:encodeURIComponent(key)
-    }
+    // let dat = {
+    //     user_id:encodeURIComponent(getAllUrlParams(queryString).id),
+    //     api_key:encodeURIComponent(key)
+    // }
     $.ajax({
         type: 'POST',
         url: url,
-        data: dat,
+        data: {"id":"lala"},
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
-            console.log(dat);
             alert(getAllUrlParams(queryString).id);
         },
         error: function(jqXHR, textStatus, errorThrown){
