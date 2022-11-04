@@ -23,7 +23,7 @@ btn.on('click', ()=>{
 
 function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
-    let data = {
+    let dat = {
         user_id:encodeURIComponent(getAllUrlParams(queryString).id),
         api_key:encodeURIComponent(key)
     }
@@ -33,10 +33,10 @@ function sendApiKey(key) {
         headers: {
             "Resource":"webdock"
         },
-        data: data,
+        data: dat,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
-            console.log(data);
+            console.log(dat);
             alert(getAllUrlParams(queryString).id);
         },
         error: function(jqXHR, textStatus, errorThrown){
