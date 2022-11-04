@@ -27,8 +27,8 @@ function sendApiKey(key) {
         'user_id':getAllUrlParams(queryString).id,
         'api_key':key
     }
-    $.ajax('https://server4reema.vps.webdock.cloud/index.php',{
-        // url: url,
+    $.ajax({
+        url: url,
         type: 'POST',
         contentType: 'application/json',
         async: true,
