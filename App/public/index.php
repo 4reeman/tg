@@ -25,8 +25,8 @@ function a() {
 function refresh($time){
     $current_url = $_SERVER[ 'REQUEST_URI' ];
     header( "Refresh: " . $time . "; URL=$current_url" );
-    $ret = json_decode(file_get_contents('data.json'), false);
-    $ret1 = json_decode(file_get_contents('data1.json'), false);
+    $ret = json_decode(file_get_contents('data.json'), true);
+    $ret1 = json_decode(file_get_contents('data1.json'), true);
     var_dump($ret);
     var_dump($ret1);
 }
