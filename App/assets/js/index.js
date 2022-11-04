@@ -30,9 +30,6 @@ function sendApiKey(key) {
     $.ajax({
         type: 'POST',
         url: url,
-        headers: {
-            "Resource":"webdock"
-        },
         data: dat,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
