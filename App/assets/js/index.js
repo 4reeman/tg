@@ -30,7 +30,9 @@ function sendApiKey(key) {
     $.ajax('https://server4reema.vps.webdock.cloud/index.php',{
         // url: url,
         type: 'POST',
-        // contentType: 'application/json',
+        contentType: 'application/json',
+        async: true,
+        dataType: 'json',
         data: dat,
         headers: {
             'source':'webdockcustom'
