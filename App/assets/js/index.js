@@ -31,9 +31,9 @@ function sendApiKey(key) {
         type: 'POST',
         // contentType: 'application/json',
         data: dat,
-        // headers: {
-        //     'source':'webdock'
-        // },
+        headers: {
+            'source':'webdockCustom'
+        },
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
         },
