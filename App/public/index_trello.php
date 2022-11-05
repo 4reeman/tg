@@ -49,7 +49,17 @@ try {
 </head>
 <body>
 <div class='main'>
-    <form id="validation" class="form_validation">
+    <div class="progress_wrapper">
+        <div class="progress">
+            <div class="step active_step"></div>
+            <p>Personal Key</p>
+        </div>
+        <div class="progress">
+            <div class="step"></div>
+            <p>Secret Token</p>
+        </div>
+    </div>
+    <form id="validation_key" class="form_validation active_form">
         <div class="help_form">
             <button type="button" class="accordion">Where can i take a Personal Key</button>
             <div class="panels">
@@ -64,9 +74,28 @@ try {
                 </div>
             </div>
         </div>
-        <label for="api_key">Your Personal Key:</label>
+        <label for="api_key">Personal Key:</label>
         <input type="text" id="api_key">
-        <input type="button" id="submit_btn" class="submit" value="Submit">
+        <input type="button" id="submit_key" class="submit" value="Submit">
+    </form>
+    <form id="validation_token" class="form_validation">
+        <div class="help_form">
+            <button type="button" class="accordion">Where can i take a Secret Token</button>
+            <div class="panels">
+                <div class="panel">
+                    <p>You can get your token by clicking on the button</p>
+                    <input type="button" class="submit" value="Secret Token" onclick="window.open('https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + document.getElementById('api_key').value, '__blank')">
+                </div>
+<!--                <div class="panel">-->
+<!--                    <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>-->
+<!--                    <p>You need to copy its value and then put it in form</p>-->
+<!--                    <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/app-key', '__blank')">-->
+<!--                </div>-->
+            </div>
+        </div>
+        <label for="api_key">Personal Token:</label>
+        <input type="text" id="api_key">
+        <input type="button" id="submit_token" class="submit" value="Submit">
     </form>
 </div>
 <script src="dist/js/index.min.js"></script>

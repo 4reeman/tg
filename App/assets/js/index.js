@@ -1,4 +1,4 @@
-let btn = $('#submit_btn');
+let btn = $('#submit_key');
 
 function validateKey() {
     let key =  $('#api_key').val()
@@ -8,6 +8,9 @@ function validateKey() {
         url: url,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
+            // $('.active_step').css('background-position', 'left');
+            $('.progress').children('.step').toggleClass('active_step');
+            $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
         },
         error: function(jqXHR, textStatus, errorThrown){

@@ -38,6 +38,11 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	max-width: 480px;
+	margin: 0 auto;
+	gap: 20px;
+	padding: 40px;
 }
 
 .form_validation {
@@ -49,13 +54,11 @@ body {
 		}
 	}
 
+	display: none;
 	background: #a1ffc2;
 	padding: 15px;
 	border-radius: 20px;
-	min-width: 25%;
 	opacity: 0.7;
-	width: min-content;
-	display: flex;
 	flex-direction: column;
 }
 
@@ -127,3 +130,57 @@ body {
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
 }
+.step {
+	background: salmon;
+	transition: .5s ease-out;
+}
+.active_step {
+	background: #a1ffc2;
+}
+.progress_wrapper {
+	min-width: 100%;
+	display: flex;
+	background: #a9ceff;
+	border-radius: 15px;
+	padding: 15px;
+	box-sizing: content-box;
+	opacity: 0.7;
+	font-size: 12px;
+}
+.progress:first-child::after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: calc(100% - 20px);
+	height: 3px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	top: 22%;
+	left: calc(50% + 10px);
+	background: linear-gradient(to left, salmon 50%, #a1ffc2 50%) right;
+	background-size: 200%;
+	transition: .5s ease-out;
+}
+.progress {
+	width: 50%;
+	position: relative;
+	text-align: center;
+	max-height: 39px;
+}
+.step {
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	text-align: center;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+.active_form {
+	display: flex;
+}
+//
+//.progress_wrapper {
+//	min-width: 25%;
+//	padding: 0 70px;
+//}
