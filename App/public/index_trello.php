@@ -44,10 +44,12 @@ try {
         <div class="progress">
             <div class="step successful_step"></div>
             <p>Personal Key</p>
+            <div class="progress_bar"></div>
         </div>
         <div class="progress">
             <div class="step"></div>
             <p>Secret Token</p>
+            <div class="progress_bar"></div>
         </div>
     </div>
     <form id="validation_key" class="form_validation active_form">

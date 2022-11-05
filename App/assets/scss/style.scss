@@ -141,7 +141,7 @@ body {
 	opacity: 0.7;
 	font-size: 12px;
 }
-.progress:first-child::after {
+.progress.progress_bar {
 	position: absolute;
 	content: '';
 	display: block;
