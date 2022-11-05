@@ -8,23 +8,24 @@ function validateKey() {
         url: url,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
-            // $('.active_step').css('background-position', 'left');
-            $successful_step = $('.progress').children('.step:not([successful_step])');
-            $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
-            $.merge($successful_step, $successful_bar).addClass('successful_step');
-
             $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
+            return true;
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
             alert('Invalid Personal Key');
+            return false;
         }
     });
 }
 
 btn.on('click', ()=>{
-   validateKey();
+    if (validateKey()) {
+        $successful_step = $('.progress').children('.step:not([successful_step])');
+        $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
+        $.merge($successful_step, $successful_bar).addClass('successful_step');
+    }
 });
 
 function sendApiKey(key) {
