@@ -83,18 +83,24 @@ Class SqlDatabaseConnection implements DbDriver {
      *
      * ]
      */
-    function updateData() {
-//        $columns = "";
-//        $holders = "";
-//        foreach ($data as $column => $value) {
-//            $columns .= ($columns == "") ? "" : ", ";
-//            $columns .= $column;
-//            $holders .= ($holders == "") ? "" : ", ";
-//            $holders .= ":$column";
-//        }
+    function updateData($data, $conditions) {
+        $columns = "";
+        $holders = "";
+        foreach ($data as $column => $value) {
+            $columns .= ($columns == "") ? "" : ", ";
+            $columns .= ":$column";
+        }
+        foreach ($conditions as $column => $value) {
+            $holders .= ($holders == "") ? "" : " AND ";
+            $holders .= ":$column";
+        }
+        $data_execute = array_merge($data, $conditions);
         try {
-            $query = "UPDATE `user_data` SET api_key='qwerty' WHERE user_id=783176196";
+            $query = "UPDATE `user_data` SET $columns WHERE $holders";
             $prepared = $this->connection->prepare($query);
+            foreach ($data_execute as $placeholder => $value) {
+                $prepared->bindValue(":$placeholder", $value);
+            }
             $prepared->execute();
         } catch (Exception $e) {
             file_put_contents('my_log.txt', "Database error UPDATEData: " . $e->getMessage());
