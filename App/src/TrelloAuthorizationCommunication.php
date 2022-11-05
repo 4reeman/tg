@@ -12,9 +12,9 @@ class TrelloAuthorizationCommunication {
         $this->db = $db;
     }
 
-    public function recordExist() {
-        return $this->db->reviewData($this->data->getUserId());
+    public function insertKey() {
+        if($this->db->reviewData($this->data->getUserId())) {
+            $this->db->updateData();
+        }
     }
-
-//    public function
 }

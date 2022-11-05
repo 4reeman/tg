@@ -37,7 +37,9 @@ include '../src/SqlDatabaseConnection.php';
 //    var_dump($ret1);
 //}
 //a();
-echo 'bla';
+$headers = [
+    "Source" => 'trello_authorization'
+];
 $tg_header = 'telegram';
 
 if($tg_header == 'telegram') {
@@ -45,8 +47,9 @@ if($tg_header == 'telegram') {
     $tg->communicate();
 }
 
-//if($headers["Source"] == 'trello_authorization') {
-//    $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
-//}
+if($headers["Source"] == 'trello_authorization') {
+    $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
+    $authorization->insertKey();
+}
 
 

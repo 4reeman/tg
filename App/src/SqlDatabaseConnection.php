@@ -78,12 +78,12 @@ Class SqlDatabaseConnection implements DbDriver {
     }
 
 
-//    /*
-//     * $data = [
-//     *      ''
-//     * ]
-//     */
-//    function updateData($data, $condition_data) {
+    /*
+     * $data = [
+     *
+     * ]
+     */
+    function updateData() {
 //        $columns = "";
 //        $holders = "";
 //        foreach ($data as $column => $value) {
@@ -92,17 +92,12 @@ Class SqlDatabaseConnection implements DbDriver {
 //            $holders .= ($holders == "") ? "" : ", ";
 //            $holders .= ":$column";
 //        }
-//        try {
-//            $query = "UPDATE `user_data` SET |api_key| WHERE id=";
-//            $prepared = $this->connection->prepare($query);
-//            $arr=[];
-//            foreach ($data as $placeholder => $value) {
-//                array_push($arr, $value);
-//            }
-//            $prepared->execute($arr);
-//            return $prepared->rowCount();
-//        } catch (Exception $e) {
-//            file_put_contents('my_log.txt', "Database error UPDATEData: " . $e->getMessage());
-//        }
-//    }
+        try {
+            $query = "UPDATE `user_data` SET api_key='qwerty' WHERE user_id=783176196";
+            $prepared = $this->connection->prepare($query);
+            $prepared->execute();
+        } catch (Exception $e) {
+            file_put_contents('my_log.txt', "Database error UPDATEData: " . $e->getMessage());
+        }
+    }
 }
