@@ -8,7 +8,8 @@ include '../src/TelegramCommunication.php';
 include '../src/TelegramOwn.php';
 include '../src/SendMessage.php';
 include '../src/SqlDatabaseConnection.php';
-
+include '../src/TrelloAuthorizationService.php';
+include '../src/TrelloAuthorizationCommunication.php';
 //
 $headers = getallheaders();
 //function a() {
