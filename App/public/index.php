@@ -13,8 +13,8 @@ include '../src/TrelloAuthorizationCommunication.php';
 //
 $headers = getallheaders();
 function a() {
-    $data=json_decode(file_get_contents("php://input"));
-//    $data = json_encode($_SERVER);
+//    $data=json_decode(file_get_contents("php://input"));
+    $data = json_encode($_SERVER);
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
         file_put_contents('data1.json', json_encode(getallheaders()));
@@ -22,7 +22,6 @@ function a() {
         refresh( 3 );
     }
     else {
-        echo (is_object($data));
         refresh( 3);
     }
 }
