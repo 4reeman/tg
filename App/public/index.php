@@ -48,7 +48,7 @@ $headers = getallheaders();
 //a();
 $tg_header = 'telegram';
 
-if($headers["HTTP_X_TELEGRAM_BOT_API_SECRET_TOKEN"] == 'telegram') {
+if($headers == 'telegram') {
     $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
     $tg->communicate();
 }
