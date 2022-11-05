@@ -1,4 +1,8 @@
-let btn = $('#submit_key');
+let btn_key = $('#submit_key');
+let btn_token = $('#submit_token');
+
+let max_step = 2;
+let current_step = 1;
 
 function validateKey() {
     let key =  $('#api_key').val()
@@ -19,14 +23,15 @@ function validateKey() {
     });
 }
 
-btn.on('click', ()=>{
+btn_key.on('click', ()=>{
     validateKey();
 });
 
 function step() {
-    $successful_step = $('.progress').children('.step:not([successful_step])');
-    $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
-    $.merge($successful_step, $successful_bar).addClass('successful_step');
+    console.log($('.progress').querySelectorAll('.step:not([successful_step])'));
+    // $successful_step = $('.progress').children('.step:not([successful_step])');
+    // $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
+    // $.merge($successful_step, $successful_bar).addClass('successful_step');
 }
 
 function sendApiKey(key) {
