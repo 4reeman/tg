@@ -9,12 +9,13 @@ include '../src/TelegramOwn.php';
 include '../src/SendMessage.php';
 include '../src/SqlDatabaseConnection.php';
 
+
+$headers = getallheaders();
 function a() {
     $data=json_decode(file_get_contents("php://input"));
 //    $data = json_encode($_SERVER);
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
-//        file_put_contents('data.json', json_encode($_SERVER));
         file_put_contents('data1.json', json_encode(getallheaders()));
         refresh( 3 );
     }
@@ -43,5 +44,9 @@ if($tg_header == 'telegram') {
     $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
     $tg->communicate();
 }
+
+//if($headers["Source"] == 'trello_authorization') {
+//    $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
+//}
 
 

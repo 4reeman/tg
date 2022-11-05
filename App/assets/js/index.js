@@ -32,7 +32,7 @@ function sendApiKey(key) {
         }),
         headers: {
             "Accept": "application/json; odata=verbose",
-            "Source": "custom",
+            "Source": "trello_authorization",
         },
         processData: false,
         success: function(data, textStatus, jqXHR){
