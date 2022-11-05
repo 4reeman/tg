@@ -13,7 +13,7 @@ class TrelloAuthorizationCommunication {
     }
 
     public function insertKey() {
-        if($this->db->reviewData($this->data->getUserId())) {
+        if($this->db->reviewData(['user_id' =>$this->data->getUserId()])) {
             $this->db->updateData();
         }
     }
