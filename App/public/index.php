@@ -14,11 +14,11 @@ include '../src/TrelloAuthorizationCommunication.php';
 $headers = getallheaders();
 function a() {
 //    $data=json_decode(file_get_contents("php://input"));
-    $data = json_encode($_SERVER);
+    $data = json_encode($_POST);
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
         file_put_contents('data1.json', json_encode(getallheaders()));
-        file_put_contents('data2.json', json_encode($_SERVER));
+        file_put_contents('data2.json', json_encode($_POST));
         refresh( 3 );
     }
     else {
