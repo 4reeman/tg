@@ -10,8 +10,7 @@ function validateKey() {
             console.log(textStatus + ": " + jqXHR.status);
             // $('.active_step').css('background-position', 'left');
             $('.progress').children('.step:not([successful_step])').addClass('successful_step');
-            // $('.progress').children('.progress_bar').addClass('successful_step');
-            // $('.progress .progress_bar').next().addClass('successful_step');
+            $('.progress').children('.progress_bar:not([successful_step])').addClass('successful_step');
             $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
         },
