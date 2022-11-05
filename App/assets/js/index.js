@@ -10,23 +10,24 @@ function validateKey() {
             console.log(textStatus + ": " + jqXHR.status);
             $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
-            return true;
+            step();
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
             alert('Invalid Personal Key');
-            return false;
         }
     });
 }
 
 btn.on('click', ()=>{
-    if (validateKey()) {
-        $successful_step = $('.progress').children('.step:not([successful_step])');
-        $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
-        $.merge($successful_step, $successful_bar).addClass('successful_step');
-    }
+    validateKey();
 });
+
+function step() {
+    $successful_step = $('.progress').children('.step:not([successful_step])');
+    $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
+    $.merge($successful_step, $successful_bar).addClass('successful_step');
+}
 
 function sendApiKey(key) {
     let url = 'https://server4reema.vps.webdock.cloud/index.php';
