@@ -14,7 +14,7 @@ class TrelloAuthorizationCommunication {
 
     public function insertKey() {
         if($this->db->reviewData(['user_id' => $this->data->getUserId()])) {
-            $this->db->updateData(['api_key' => $this->data->getApiKey()],['user_id' => $this->data->getUserId()]);
+            $this->db->updateData(['api_key' => $this->data->getApiKey()], ['user_id' => $this->data->getUserId()]);
         }
     }
 }

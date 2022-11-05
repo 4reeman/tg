@@ -12,32 +12,32 @@ include '../src/TrelloAuthorizationService.php';
 include '../src/TrelloAuthorizationCommunication.php';
 //
 $headers = getallheaders();
-//function a() {
-//    $data=json_decode(file_get_contents("php://input"));
-////    $data = json_encode($_SERVER);
-//    if($data!=null) {
-//        file_put_contents('data.json', json_encode($data));
-//        file_put_contents('data1.json', json_encode(getallheaders()));
-//        refresh( 3 );
-//    }
-//    else {
-//        echo (is_object($data));
-//        refresh( 3);
-//    }
-//}
-//function refresh($time){
-//    $current_url = $_SERVER[ 'REQUEST_URI' ];
-//    header( "Refresh: " . $time . "; URL=$current_url" );
-//    $ret = json_decode(file_get_contents('data.json'), true);
-//    $ret1 = json_decode(file_get_contents('data1.json'), true);
-//    echo ' </br>';
-//    echo 'input';
-//    var_dump($ret);
-//    echo ' </br>';
-//    echo 'header';
-//    var_dump($ret1);
-//}
-//a();
+function a() {
+    $data=json_decode(file_get_contents("php://input"));
+//    $data = json_encode($_SERVER);
+    if($data!=null) {
+        file_put_contents('data.json', json_encode($data));
+        file_put_contents('data1.json', json_encode(getallheaders()));
+        refresh( 3 );
+    }
+    else {
+        echo (is_object($data));
+        refresh( 3);
+    }
+}
+function refresh($time){
+    $current_url = $_SERVER[ 'REQUEST_URI' ];
+    header( "Refresh: " . $time . "; URL=$current_url" );
+    $ret = json_decode(file_get_contents('data.json'), true);
+    $ret1 = json_decode(file_get_contents('data1.json'), true);
+    echo ' </br>';
+    echo 'input';
+    var_dump($ret);
+    echo ' </br>';
+    echo 'header';
+    var_dump($ret1);
+}
+a();
 //$headers = [
 //    "Source" => 'trello_authorization'
 //];
