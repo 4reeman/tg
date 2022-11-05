@@ -33,11 +33,17 @@ function refresh($time){
     $ret1 = json_decode(file_get_contents('data1.json'), true);
     $ret2 = json_decode(file_get_contents('data2.json'), true);
     echo ' </br>';
-    echo 'input';
-    var_dump($ret);
+    echo "<pre>";
+    print_r($ret);
+    echo "</pre>";
     echo ' </br>';
-    echo 'header';
-    var_dump($ret1);
+    echo "<pre>";
+    print_r($ret1);
+    echo "</pre>";
+    echo ' </br>';
+    echo "<pre>";
+    print_r($ret2);
+    echo "</pre>";
 }
 a();
 //$headers = [
