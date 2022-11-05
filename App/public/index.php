@@ -10,7 +10,7 @@ include '../src/SendMessage.php';
 include '../src/SqlDatabaseConnection.php';
 
 //
-//$headers = getallheaders();
+$headers = getallheaders();
 //function a() {
 //    $data=json_decode(file_get_contents("php://input"));
 ////    $data = json_encode($_SERVER);
@@ -37,9 +37,9 @@ include '../src/SqlDatabaseConnection.php';
 //    var_dump($ret1);
 //}
 //a();
-$headers = [
-    "Source" => 'trello_authorization'
-];
+//$headers = [
+//    "Source" => 'trello_authorization'
+//];
 $tg_header = 'telegram';
 
 if($tg_header == 'telegram') {
