@@ -19,7 +19,7 @@ function a() {
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
         file_put_contents('data1.json', json_encode(getallheaders()));
-        file_put_contents('data2.json', json_encode($_POST));
+        file_put_contents('data2.json', json_encode($_SERVER));
         refresh( 3 );
     }
     else {
