@@ -88,20 +88,20 @@ Class SqlDatabaseConnection implements DbDriver {
         $holders = "";
         foreach ($data as $column => $value) {
             $columns .= ($columns == "") ? "" : ", ";
-            $columns .= ":$column";
+            $columns .= "$column=:$column";
         }
         foreach ($conditions as $column => $value) {
             $holders .= ($holders == "") ? "" : " AND ";
-            $holders .= ":$column";
+            $holders .= "$column=:$column";
         }
         $data_execute = array_merge($data, $conditions);
         try {
             $query = "UPDATE `user_data` SET $columns WHERE $holders";
             $prepared = $this->connection->prepare($query);
-            foreach ($data_execute as $placeholder => $value) {
-                $prepared->bindValue(":$placeholder", $value);
-            }
-            $prepared->execute();
+//            foreach ($data_execute as $placeholder => $value) {
+//                $prepared->bindValue(":$placeholder", $value);
+//            }
+            $prepared->execute($data_execute);
         } catch (Exception $e) {
             file_put_contents('my_log.txt', "Database error UPDATEData: " . $e->getMessage());
         }

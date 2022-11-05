@@ -52,7 +52,7 @@ if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
     $tg->communicate();
 }
 
-if($headers["Source"] == 'trello_authorization') {
+if($headers['Source'] == 'trello_authorization') {
     $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
     $authorization->insertKey();
 }
