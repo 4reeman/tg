@@ -1,6 +1,6 @@
 <?php
 
-define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw'); // place bot token of your bot here
+define('BOT_TOKEN', '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw');
 
 function checkTelegramAuthorization($auth_data) {
     $check_hash = $auth_data['hash'];
@@ -16,21 +16,12 @@ function checkTelegramAuthorization($auth_data) {
     if (strcmp($hash, $check_hash) !== 0) {
         throw new Exception('Data is NOT from Telegram');
     }
-//    if ((time() - $auth_data['auth_date']) > 86400) {
-//        throw new Exception('Data is outdated');
-//    }
 
     return $auth_data;
 }
 
-function saveTelegramUserData($auth_data) {
-    $auth_data_json = json_encode($auth_data);
-//    setcookie('tg_user', $auth_data_json);
-}
-
 try {
     $auth_data = checkTelegramAuthorization($_GET);
-//    saveTelegramUserData($auth_data);
 } catch (Exception $e) {
     die($e->getMessage());
 }
@@ -51,7 +42,7 @@ try {
 <div class='main'>
     <div class="progress_wrapper">
         <div class="progress">
-            <div class="step active_step"></div>
+            <div class="step successful_step"></div>
             <p>Personal Key</p>
         </div>
         <div class="progress">
@@ -86,11 +77,6 @@ try {
                     <p>You can get your token by clicking on the button</p>
                     <input type="button" class="submit" value="Secret Token" onclick="window.open('https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + document.getElementById('api_key').value, '__blank')">
                 </div>
-<!--                <div class="panel">-->
-<!--                    <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>-->
-<!--                    <p>You need to copy its value and then put it in form</p>-->
-<!--                    <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/app-key', '__blank')">-->
-<!--                </div>-->
             </div>
         </div>
         <label for="api_key">Personal Token:</label>

@@ -9,7 +9,7 @@ function validateKey() {
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
             // $('.active_step').css('background-position', 'left');
-            $('.progress').children('.step').toggleClass('active_step');
+            $('.progress').children('.step').addClass('successful_step');
             $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
         },
