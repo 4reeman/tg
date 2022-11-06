@@ -136,6 +136,7 @@ function sendButton() {
         },
         processData: false,
         success: function(data, textStatus, jqXHR){
+            step();
             console.log(textStatus + ": " + jqXHR.status);
         },
         error: function(jqXHR, textStatus, errorThrown){
