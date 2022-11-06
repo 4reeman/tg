@@ -42,7 +42,7 @@ try {
 <div class='main'>
     <div class="progress_wrapper">
         <div class="progress">
-            <div class="step successful_step"></div>
+            <div class="step current_step"></div>
             <p>Personal Key</p>
             <div class="progress_bar"></div>
         </div>
@@ -51,40 +51,49 @@ try {
             <p>Secret Token</p>
             <div class="progress_bar"></div>
         </div>
+        <div class="progress">
+            <div class="step"></div>
+            <p>Data Submitted</p>
+        </div>
     </div>
-    <form id="validation_key" class="form_validation active_form">
-        <div class="help_form">
-            <button type="button" class="accordion">Where can i take a Personal Key</button>
-            <div class="panels">
-                <div class="panel">
-                    <p>First of all, make sure You are logged into Trello:</p>
-                    <input type="button" class="submit" value="Sign in Trello" onclick="window.open('https://trello.com/login', '__blank')">
-                </div>
-                <div class="panel">
-                    <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>
-                    <p>You need to copy its value and then put it in form</p>
-                    <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/app-key', '__blank')">
-                </div>
-            </div>
-        </div>
-        <label for="api_key">Personal Key:</label>
-        <input type="text" id="api_key">
-        <input type="button" id="submit_key" class="submit" value="Submit">
-    </form>
-    <form id="validation_token" class="form_validation">
-        <div class="help_form">
-            <button type="button" class="accordion">Where can i take a Secret Token</button>
-            <div class="panels">
-                <div class="panel">
-                    <p>You can get your token by clicking on the button</p>
-                    <input type="button" class="submit" value="Secret Token" onclick="window.open('https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + document.getElementById('api_key').value, '__blank')">
+    <div class="form_wrapper">
+        <form id="validation_key" class="form_validation active_form">
+            <div class="help_form">
+                <button type="button" class="accordion">Where can i take a Personal Key</button>
+                <div class="panels">
+                    <div class="panel">
+                        <p>First of all, make sure You are logged into Trello:</p>
+                        <input type="button" class="submit" value="Sign in Trello" onclick="window.open('https://trello.com/login', '__blank')">
+                    </div>
+                    <div class="panel">
+                        <p>If you press the button below then the new browser tab where you can find Your Personal Key will open</p>
+                        <p>You need to copy its value and then put it in form</p>
+                        <input type="button" class="submit" value="Get Key" onclick="window.open('https://trello.com/app-key', '__blank')">
+                    </div>
                 </div>
             </div>
-        </div>
-        <label for="api_key">Personal Token:</label>
-        <input type="text" id="api_key">
-        <input type="button" id="submit_token" class="submit" value="Submit">
-    </form>
+            <label for="api_key">Personal Key:</label>
+            <input type="text" id="api_key">
+            <input type="button" id="submit_key" class="submit" value="Submit">
+        </form>
+        <form id="validation_token" class="form_validation">
+            <div class="help_form">
+                <button type="button" class="accordion">Where can i take a Secret Token</button>
+                <div class="panels">
+                    <div class="panel">
+                        <p>You can get your token by clicking on the button</p>
+                        <input type="button" class="submit" value="Secret Token" onclick="window.open('https://trello.com/1/authorize?expiration=1day&name=MyPersonalToken&scope=read&response_type=token&key=' + document.getElementById('api_key').value, '__blank')">
+                    </div>
+                </div>
+            </div>
+            <label for="api_token">Personal Token:</label>
+            <input type="text" id="api_token">
+            <input type="button" id="submit_token" class="submit" value="Submit">
+        </form>
+        <form id="Success" class="form_validation">
+            <input type="button" id="redirect" class="submit" value="Go Back to Telegram" onclick="window.open('https://t.me/+x8BeUJmbSj9lODMy')">
+        </form>
+    </div>
 </div>
 <script src="dist/js/index.min.js"></script>
 </body>

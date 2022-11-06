@@ -10,12 +10,11 @@ include '../src/SendMessage.php';
 include '../src/SqlDatabaseConnection.php';
 include '../src/TrelloAuthorizationService.php';
 include '../src/TrelloAuthorizationCommunication.php';
-//
+
 $data=json_decode(file_get_contents("php://input"));
 $headers = getallheaders();
 function a() {
     $data=json_decode(file_get_contents("php://input"));
-//    $data = json_encode($_POST);
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
         file_put_contents('data1.json', json_encode(getallheaders()));
@@ -53,8 +52,22 @@ if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
 }
 
 if($headers['Source'] == 'trello_authorization') {
-    $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
-    $authorization->insertKey();
+
+    switch ($headers['Data']) {
+        case 'key':
+            $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
+            $authorization->insertKey();
+            break;
+        case 'token':
+            $authorization = new TrelloAuthorizationCommunication(new TrelloAuthorizationService(), new SendMessage(), new SqlDatabaseConnection());
+            $authorization->insertToken();
+            break;
+        case 'message':
+            $tg = new TelegramCommunication(new TelegramOwn(), new SendMessage(), new SqlDatabaseConnection());
+            $tg->communicate();
+            break;
+    }
+
 }
 
 

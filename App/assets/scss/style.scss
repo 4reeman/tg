@@ -32,7 +32,15 @@ body {
 		background-position: 0% 50%;
 	}
 }
+@keyframes scale {
+	0% {
+		transform: scale(1);
+	}
 
+	50% {
+		transform: scale(0.7);
+	}
+}
 .main {
 	height: inherit;
 	display: flex;
@@ -43,6 +51,7 @@ body {
 	margin: 0 auto;
 	gap: 20px;
 	padding: 40px;
+	overflow: hidden;
 }
 
 .form_validation {
@@ -53,13 +62,23 @@ body {
 			border-radius: 15px;
 		}
 	}
-
-	display: none;
+	display: flex;
+	flex-basis: unset;
+	transition-duration: 0.3s;
+	scale: 0.5;
+	opacity: 0;
+	min-width: 100%;
 	background: #a1ffc2;
 	padding: 15px;
 	border-radius: 20px;
-	opacity: 0.7;
 	flex-direction: column;
+	margin-right: -400px;
+	height: fit-content;
+}
+
+.form_wrapper {
+	display: flex;
+	width: 100%;
 }
 
 .help_form {
@@ -72,8 +91,6 @@ body {
 }
 
 .submit {
-	width: 30%;
-	align-self: end;
 	border: none;
 	outline: none;
 	border-radius: 15px;
@@ -81,8 +98,9 @@ body {
 	background: #3AFF62;
 	cursor: pointer;
 	font-size: 1rem;
-	transition-duration: 1s;
+	transition-duration: 0.5s;
 	transition-property: background-color;
+	padding: 10px 20px;
 }
 
 .accordion {
@@ -106,7 +124,7 @@ body {
 	padding: 10px 18px;
 	& > .submit {
 		padding: 5px 15px;
-		width: 40%;
+		min-width: 125px;
 	}
 	& > p {
 		padding-bottom: 10px;
@@ -133,27 +151,28 @@ body {
 
 .progress_wrapper {
 	min-width: 100%;
+	padding: 15px 0;
 	display: flex;
 	background: #a9ceff;
 	border-radius: 15px;
-	padding: 15px;
 	box-sizing: content-box;
 	opacity: 0.7;
 	font-size: 12px;
 }
 .progress_bar {
 	position: absolute;
-	width: calc(100% - 20px);
+	width: 40%;
 	height: 3px;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	top: 22%;
-	left: calc(50% + 10px);
+	border-radius: 20px;
+	top: 24%;
+	left: 80%;
 	background: salmon;
 	transition: .5s ease-out;
 }
 .active_form {
-	display: flex;
+	scale: 1;
+	opacity: 0.7;
+	margin-right: 0;
 }
 .progress {
 	width: 50%;
@@ -166,11 +185,14 @@ body {
 	height: 20px;
 	border-radius: 100%;
 	text-align: center;
-	border: 1px solid black;
 	margin: 0 auto;
 	background: salmon;
-	transition: .5s ease-out;
+	transition: 1s ease-out;
 }
+.current_step {
+	animation: scale 2s ease infinite;
+}
+
 .successful_step {
 	background: #a1ffc2;
 }

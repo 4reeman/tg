@@ -21,4 +21,8 @@ class TrelloAuthorizationService implements InputDataInterface {
     public function getApiKey() {
         return $this->data['api_key'];
     }
+
+    public function getPersonalToken() {
+        return $this->data['personal_token'];
+    }
 }

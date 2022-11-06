@@ -1,7 +1,7 @@
 let btn_key = $('#submit_key');
 let btn_token = $('#submit_token');
+let btn_telegram = $('#redirect');
 
-let max_step = 2;
 let current_step = 1;
 
 function validateKey() {
@@ -12,7 +12,6 @@ function validateKey() {
         url: url,
         success: function(data, textStatus, jqXHR){
             console.log(textStatus + ": " + jqXHR.status);
-            $('.main').children('.form_validation').toggleClass('active_form');
             sendApiKey(key);
             step();
         },
@@ -23,15 +22,50 @@ function validateKey() {
     });
 }
 
+function validateToken() {
+    let key =  $('#api_key').val()
+    let token =  $('#api_token').val()
+    let url = 'https://api.trello.com/1/members/me/?key=' + key + '&token=' + token;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(data, textStatus, jqXHR){
+            console.log(textStatus + ": " + jqXHR.status);
+            sendToken(token);
+            step();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+            alert('Invalid Token');
+        }
+    });
+}
+
 btn_key.on('click', ()=>{
     validateKey();
 });
 
+btn_token.on('click', ()=>{
+    validateToken();
+});
+
+btn_telegram.on('click', ()=>{
+    sendButton();
+});
+
 function step() {
-    console.log($('.progress').querySelectorAll('.step:not([successful_step])'));
-    // $successful_step = $('.progress').children('.step:not([successful_step])');
-    // $successful_bar = $('.progress').children('.progress_bar:not([successful_step])');
-    // $.merge($successful_step, $successful_bar).addClass('successful_step');
+    let steps = document.querySelectorAll('.step');
+    let bars = document.querySelectorAll('.progress_bar');
+    let forms = document.querySelectorAll('.form_validation');
+
+    steps[current_step-1].classList.add('successful_step');
+    steps[current_step-1].classList.remove('current_step');
+    steps[current_step].classList.add('current_step');
+    bars[current_step-1].classList.add('successful_step');
+    forms[current_step-1].classList.remove('active_form');
+    forms[current_step].classList.add('active_form');
+
+    current_step+=1;
 }
 
 function sendApiKey(key) {
@@ -46,6 +80,59 @@ function sendApiKey(key) {
         headers: {
             "Accept": "application/json; odata=verbose",
             "Source": "trello_authorization",
+            "Data": "key"
+        },
+        processData: false,
+        success: function(data, textStatus, jqXHR){
+            console.log(textStatus + ": " + jqXHR.status);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+        }
+    });
+}
+
+function sendToken(token) {
+    let url = 'https://server4reema.vps.webdock.cloud/index.php';
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify({
+            'user_id': getAllUrlParams(queryString).id,
+            'personal_token': token
+        }),
+        headers: {
+            "Accept": "application/json; odata=verbose",
+            "Source": "trello_authorization",
+            "Data": "token"
+        },
+        processData: false,
+        success: function(data, textStatus, jqXHR){
+            console.log(textStatus + ": " + jqXHR.status);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+        }
+    });
+}
+
+function sendButton() {
+    let url = 'https://server4reema.vps.webdock.cloud/index.php';
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify({
+            'message': {
+                'text': 'trello',
+                'from': {
+                    'id': getAllUrlParams(queryString).id
+                }
+            }
+        }),
+        headers: {
+            "Accept": "application/json; odata=verbose",
+            "Source": "trello_authorization",
+            "Data": "message"
         },
         processData: false,
         success: function(data, textStatus, jqXHR){
@@ -60,61 +147,44 @@ function sendApiKey(key) {
 const queryString = window.location.search;
 
 function getAllUrlParams(url) {
-
-    // get query string from url (optional) or window
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-
-    // we'll store the parameters here
     var obj = {};
 
-    // if query string exists
     if (queryString) {
 
-        // stuff after # is not part of query string, so get rid of it
         queryString = queryString.split('#')[0];
 
-        // split our query string into its component parts
         var arr = queryString.split('&');
 
         for (var i = 0; i < arr.length; i++) {
-            // separate the keys and the values
+
             var a = arr[i].split('=');
 
-            // set parameter name and value (use 'true' if empty)
             var paramName = a[0];
             var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
 
-            // (optional) keep case consistent
             paramName = paramName.toLowerCase();
             if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
 
-            // if the paramName ends with square brackets, e.g. colors[] or colors[2]
             if (paramName.match(/\[(\d+)?\]$/)) {
 
-                // create key if it doesn't exist
                 var key = paramName.replace(/\[(\d+)?\]/, '');
                 if (!obj[key]) obj[key] = [];
 
-                // if it's an indexed array e.g. colors[2]
                 if (paramName.match(/\[\d+\]$/)) {
-                    // get the index value and add the entry at the appropriate position
                     var index = /\[(\d+)\]/.exec(paramName)[1];
                     obj[key][index] = paramValue;
                 } else {
-                    // otherwise add the value to the end of the array
                     obj[key].push(paramValue);
                 }
             } else {
-                // we're dealing with a string
+
                 if (!obj[paramName]) {
-                    // if it doesn't exist, create property
                     obj[paramName] = paramValue;
                 } else if (obj[paramName] && typeof obj[paramName] === 'string'){
-                    // if property does exist and it's a string, convert it to an array
                     obj[paramName] = [obj[paramName]];
                     obj[paramName].push(paramValue);
                 } else {
-                    // otherwise add the property
                     obj[paramName].push(paramValue);
                 }
             }
