@@ -41,7 +41,7 @@ class TelegramCommunication {
                 'user_name' => $this->data->getUserName(),
                 'chat_id' => $this->data->getChatId()
             ];
-            if(!$this->db->reviewData($tgData)) {
+            if(!$this->db->reviewData($tgData, true)) {
                 $this->db->insertData($tgInsertData);
             }
             $keyboard = [
@@ -70,7 +70,7 @@ class TelegramCommunication {
     }
 
     public function trelloButtonsRespons() {
-        
+
 
 
         $keyboard = [
