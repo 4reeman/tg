@@ -13,13 +13,13 @@ class TrelloAuthorizationCommunication {
     }
 
     public function insertKey() {
-        if($this->db->reviewData(['user_id' => $this->data->getUserId()])) {
+        if($this->db->reviewData(['user_id' => $this->data->getUserId()], true)) {
             $this->db->updateData(['api_key' => $this->data->getApiKey()], ['user_id' => $this->data->getUserId()]);
         }
     }
 
     public function insertToken() {
-        if($this->db->reviewData(['user_id' => $this->data->getUserId()])) {
+        if($this->db->reviewData(['user_id' => $this->data->getUserId()], true)) {
             $this->db->updateData(['personal_token' => $this->data->getPersonalToken()], ['user_id' => $this->data->getUserId()]);
         }
     }

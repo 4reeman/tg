@@ -54,7 +54,7 @@ Class SqlDatabaseConnection implements DbDriver {
     }
 
 // rework
-    function reviewData($data) {
+    function reviewData($data, $quantity) {
         $columns = "";
         $holders = "";
         foreach ($data as $column => $value) {
@@ -71,7 +71,13 @@ Class SqlDatabaseConnection implements DbDriver {
                 array_push($arr, $value);
             }
             $prepared->execute($arr);
-            return $prepared->rowCount();
+            if ($quantity) {
+                return $prepared->rowCount();
+            }
+            else {
+                return $prepared->fetch();
+            }
+
         } catch (Exception $e) {
             file_put_contents('my_log.txt', "Database error reviewData: " . $e->getMessage());
         }
