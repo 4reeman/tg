@@ -62,7 +62,7 @@ body {
 			border-radius: 15px;
 		}
 	}
-	display: flex;
+	display: none;
 	flex-basis: unset;
 	transition-duration: 0.3s;
 	scale: 0.5;
@@ -172,6 +172,7 @@ body {
 .active_form {
 	scale: 1;
 	opacity: 0.7;
+	display: flex;
 }
 .progress {
 	width: 50%;
