@@ -70,16 +70,14 @@ class TelegramCommunication {
     }
 
     public function trelloButtonsRespons() {
-
-
-
+//        $this->db->selectData('api_key', 'chat_id=' . $this->data->getUserId());
         $keyboard = [
             'inline_keyboard' => [
                 [
                     [
                         'text' => 'Trello Authorization',
                         'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
+                            'url' => 'https://server4reema.vps.webdock.cloud/index.php',
                             'request_write_access' => true,
                             'forward_text' => 'Login (forwarded)'
                         ]
@@ -89,9 +87,8 @@ class TelegramCommunication {
         ];
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
-            'chat_id' => $this->data->getChatId(),
-            'text' => 'You need to connect your Telegram account ' .
-                'with our server to use the functionality of this bot in full',
+            'chat_id' => $this->data->getUserId(),
+            'text' => 'Nice',
             'reply_markup' => $encodedKeyboard,
         ];
         $this->response->send('sendMessage', $trelloGetReport);

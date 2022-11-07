@@ -112,4 +112,13 @@ Class SqlDatabaseConnection implements DbDriver {
             file_put_contents('my_log.txt', "Database error UPDATEData: " . $e->getMessage());
         }
     }
+
+    function selectData($column, $condition) {
+        $query = "SELECT $column FROM `user_data` WHERE $condition";
+        $prepared = $this->connection->prepare($query);
+        return $prepared->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
 }
