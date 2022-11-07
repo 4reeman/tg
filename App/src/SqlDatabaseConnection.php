@@ -116,7 +116,7 @@ Class SqlDatabaseConnection implements DbDriver {
     function selectData($column, $condition, $value) {
         $query = "SELECT $column FROM `user_data` WHERE $condition";
         $prepared = $this->connection->prepare($query);
-
+        file_put_contents('my_log.txt', implode($prepared->fetch(PDO::FETCH_ASSOC)));
         return $prepared->fetch(PDO::FETCH_ASSOC);
     }
 
