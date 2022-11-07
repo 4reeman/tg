@@ -5,5 +5,5 @@ interface DbDriver {
     function insertData($data);
     function reviewData($data, $quantity);
     function updateData($data, $conditions);
-    function selectData($column, $condition);
+    function selectData($column, $condition, $value);
 }
