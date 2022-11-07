@@ -77,7 +77,9 @@ class TelegramCommunication {
                     [
                         'text' => 'Nice',
                         'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/index.php'
+                            'url' => 'https://server4reema.vps.webdock.cloud/index.php',
+                            'request_write_access' => true,
+                            'forward_text' => 'Login (forwarded)'
                         ]
                     ]
                 ]
