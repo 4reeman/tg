@@ -70,7 +70,7 @@ class TelegramCommunication {
     }
 
     public function trelloButtonsRespons() {
-//        $chat_id = $this->db->selectData('chat_id', 'user_id=?', [$this->data->getUserId()]);
+        $chat_id = $this->db->selectData('chat_id', 'user_id=?', [$this->data->getUserId()]);
         $keyboard = [
             'inline_keyboard' => [
                 [
@@ -87,7 +87,7 @@ class TelegramCommunication {
         ];
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
-            'chat_id' => '-1001658519019',
+            'chat_id' => $chat_id,
             'text' => 'Nice',
             'reply_markup' => $encodedKeyboard,
         ];
