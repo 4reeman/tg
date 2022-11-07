@@ -70,16 +70,14 @@ class TelegramCommunication {
     }
 
     public function trelloButtonsRespons() {
-        $chat_id = $this->db->selectData('chat_id', 'user_id=?', $this->data->getUserId());
+        $chat_id = $this->db->selectData('chat_id', 'user_id=?', [$this->data->getUserId()]);
         $keyboard = [
             'inline_keyboard' => [
                 [
                     [
                         'text' => 'Nice',
                         'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/index.php',
-                            'request_write_access' => true,
-                            'forward_text' => 'Login (forwarded)'
+                            'url' => 'https://server4reema.vps.webdock.cloud/index.php'
                         ]
                     ]
                 ]
