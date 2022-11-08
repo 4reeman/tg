@@ -75,12 +75,8 @@ class TelegramCommunication {
             'inline_keyboard' => [
                 [
                     [
-                        'text' => 'Nice',
-                        'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/index.php',
-                            'request_write_access' => true,
-                            'forward_text' => 'Login (forwarded)'
-                        ]
+                        'text' => 'Authorization successful',
+                        'callback_data' => '/plz'
                     ]
                 ]
             ]
