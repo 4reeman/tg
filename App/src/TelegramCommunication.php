@@ -62,12 +62,12 @@ class TelegramCommunication {
                             'login_url' => [
                                 'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
                                 'request_write_access' => true,
-                                'one_time_keyboard' => true,
                                 'forward_text' => 'Login (forwarded)'
                             ]
                         ]
                     ]
-                ]
+                ],
+                'one_time_keyboard' => true
             ];
             $encodedKeyboard = json_encode($keyboard);
             $trelloKeyLink = [
