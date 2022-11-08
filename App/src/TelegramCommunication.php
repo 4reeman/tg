@@ -92,8 +92,6 @@ class TelegramCommunication {
             'reply_markup' => $encodedKeyboard,
         ];
         $this->response->send('sendMessage', $trelloGetReport);
-        //create select chat_id where user_id and send button to get otchet
-//        $this->response->send('sendMessage', ['chat_id' => $this->data->getUserId(), 'text' => 'Hi']);
     }
 
 }
