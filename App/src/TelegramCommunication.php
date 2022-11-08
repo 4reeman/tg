@@ -103,7 +103,8 @@ class TelegramCommunication {
     }
 
     public function trelloGetReport() {
-        
+        $get = http_get("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
+        $this->response->send('sendMessage', $get);
     }
 
 }
