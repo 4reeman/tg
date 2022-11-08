@@ -73,7 +73,8 @@ class TelegramCommunication {
                 'chat_id' => $this->data->getChatId(),
                 'text' => 'You need to connect your Telegram account ' .
                     'with our server to use the functionality of this bot in full',
-                'reply_markup' => $encodedKeyboard,
+                'one_time_keyboard' => true,
+                'reply_markup' => $encodedKeyboard
             ];
             $this->response->send('sendMessage', $trelloKeyLink);
         }
@@ -94,9 +95,9 @@ class TelegramCommunication {
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
             'chat_id' => $chat_id,
-            'one_time_keyboard' => true,
             'text' => 'Authorization successful',
-            'reply_markup' => $encodedKeyboard,
+            'one_time_keyboard' => true,
+            'reply_markup' => $encodedKeyboard
         ];
         $this->response->send('sendMessage', $trelloGetReport);
     }
