@@ -85,8 +85,7 @@ class TelegramCommunication {
             'inline_keyboard' => [
                 [
                     [
-                        'text' => 'Authorization successful',
-                        'one_time_keyboard' => true,
+                        'text' => 'Report',
                         'callback_data' => '/report'
                     ]
                 ]
@@ -95,7 +94,8 @@ class TelegramCommunication {
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
             'chat_id' => $chat_id,
-            'text' => 'Report',
+            'one_time_keyboard' => true,
+            'text' => 'Authorization successful',
             'reply_markup' => $encodedKeyboard,
         ];
         $this->response->send('sendMessage', $trelloGetReport);
