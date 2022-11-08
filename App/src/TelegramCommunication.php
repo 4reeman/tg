@@ -62,19 +62,18 @@ class TelegramCommunication {
                             'login_url' => [
                                 'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
                                 'request_write_access' => true,
-                                'one_time_keyboard' => true,
                                 'forward_text' => 'Login (forwarded)'
                             ]
                         ]
                     ],
                 ],
-                'one_time_keyboard' => true
             ];
             $encodedKeyboard = json_encode($keyboard);
             $trelloKeyLink = [
                 'chat_id' => $this->data->getChatId(),
                 'text' => 'You need to connect your Telegram account ' .
                     'with our server to use the functionality of this bot in full',
+                'one_time_keyboard' => true,
                 'reply_markup' => $encodedKeyboard
             ];
             $this->response->send('sendMessage', $trelloKeyLink);
