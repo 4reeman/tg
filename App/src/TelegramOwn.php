@@ -26,4 +26,7 @@ class TelegramOwn implements InputDataInterface {
     public function getMessage() {
         return $this->data['message']['text'];
     }
+    public function getCallbackData() {
+        return $this->data['callback_query']['data'];
+    }
 }

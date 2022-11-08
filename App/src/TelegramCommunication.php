@@ -13,14 +13,24 @@ class TelegramCommunication {
     }
 
     public function communicate() {
-        switch ($this->data->getMessage()) {
-            case '/start':
-                $this->startResponse();
-                break;
-            case 'trello':
-                $this->trelloButtonsRespons();
-                break;
+        if(empty($this->data->getCallbackData())) {
+            switch ($this->data->getMessage()) {
+                case '/start':
+                    $this->startResponse();
+                    break;
+                case 'trello':
+                    $this->trelloButtonsRespons();
+                    break;
+            }
         }
+        else {
+            switch ($this->data->getCallbackData()) {
+                case '/report':
+                    $this->trelloGetReport();
+                    break;
+            }
+        }
+
     }
 
     public function startResponse() {
@@ -76,7 +86,8 @@ class TelegramCommunication {
                 [
                     [
                         'text' => 'Authorization successful',
-                        'callback_data' => '/plz'
+                        'one_time_keyboard' => true,
+                        'callback_data' => '/report'
                     ]
                 ]
             ]
@@ -84,10 +95,14 @@ class TelegramCommunication {
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
             'chat_id' => $chat_id,
-            'text' => 'Nice',
+            'text' => 'Report',
             'reply_markup' => $encodedKeyboard,
         ];
         $this->response->send('sendMessage', $trelloGetReport);
+    }
+
+    public function trelloGetReport() {
+
     }
 
 }
