@@ -87,7 +87,7 @@ class TelegramCommunication {
         ];
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
-            'chat_id' => strval($chat_id),
+            'chat_id' => $chat_id,
             'text' => 'Nice',
             'reply_markup' => $encodedKeyboard,
         ];
