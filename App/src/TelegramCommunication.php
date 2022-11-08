@@ -70,7 +70,7 @@ class TelegramCommunication {
     }
 
     public function trelloButtonsRespons() {
-        $chat_id = $this->db->selectData('chat_id', 'user_id=?', [$this->data->getUserId()]);
+        $chat_id = $this->db->selectData('chat_id', 'user_id=?', $this->data->getUserId());
         $keyboard = [
             'inline_keyboard' => [
                 [
