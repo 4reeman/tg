@@ -114,12 +114,14 @@ Class SqlDatabaseConnection implements DbDriver {
     }
 
     function selectData($column, $condition, $value) {
-        $query = "SELECT $column FROM `user_data` WHERE $condition";
+        $query = "SELECT $column FROM `user_data` WHERE $condition LIMIT 1";
         $prepared = $this->connection->prepare($query);
         $prepared->execute($value);
-        file_put_contents('my_log.txt', implode($prepared->fetch(PDO::FETCH_ASSOC)));
-        $fetched = $prepared->fetch(PDO::FETCH_ASSOC);
-        return implode($prepared->fetch(PDO::FETCH_ASSOC));
+        $row = $prepared->fetch();
+        return $row;
+//        file_put_contents('my_log.txt', implode($prepared->fetch(PDO::FETCH_ASSOC)));
+//        $fetched = $prepared->fetch(PDO::FETCH_ASSOC);
+//        return implode($prepared->fetch(PDO::FETCH_ASSOC));
     }
 
 
