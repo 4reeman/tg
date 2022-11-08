@@ -87,11 +87,11 @@ class TelegramCommunication {
                 [
                     [
                         'text' => 'Report',
-                        'one_time_keyboard' => true,
                         'callback_data' => '/report'
                     ]
                 ]
-            ]
+            ],
+            'one_time_keyboard' => true
         ];
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
