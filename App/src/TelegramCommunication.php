@@ -97,6 +97,7 @@ class TelegramCommunication {
         $trelloGetReport = [
             'chat_id' => $chat_id,
             'text' => 'Authorization successful',
+            'selective' => true,
             'reply_markup' => $encodedKeyboard
         ];
         $this->response->send('sendMessage', $trelloGetReport);
