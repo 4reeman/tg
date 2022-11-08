@@ -118,6 +118,8 @@ Class SqlDatabaseConnection implements DbDriver {
         $prepared = $this->connection->prepare($query);
         $prepared->execute($value);
         $row = $prepared->fetch();
+                file_put_contents('my_log.txt', $row);
+
         return $row;
 //        file_put_contents('my_log.txt', implode($prepared->fetch(PDO::FETCH_ASSOC)));
 //        $fetched = $prepared->fetch(PDO::FETCH_ASSOC);
