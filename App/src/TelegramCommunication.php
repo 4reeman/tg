@@ -59,7 +59,6 @@ class TelegramCommunication {
                     [
                         [
                             'text' => 'Trello Authorization',
-                            'callback_data' => '/start',
                             'login_url' => [
                                 'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
                                 'request_write_access' => true,
