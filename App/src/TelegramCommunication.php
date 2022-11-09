@@ -104,7 +104,7 @@ class TelegramCommunication {
     public function trelloGetReport() {
         //expired token down
 //        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
-        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=b7a8a1fd8d3939876ff5e58fcdff1547260576df78fa50635d12146f4b7da5c8");
+        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=b7a8a1fd8d3939876ff5e58fcdff1547260576df78fa50635d12146f4b7da5c8");
         if(empty($getBoards)) {
             return $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'token for user ' . $this->data->getUserName() . ' was expired']); //change user name to name from db;
         }
