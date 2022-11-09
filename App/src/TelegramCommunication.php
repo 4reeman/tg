@@ -102,9 +102,9 @@ class TelegramCommunication {
     }
 
     public function trelloGetReport() {
-        if(file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4") == 'expired token') {
-            return $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'expired']);
-        }
+//        if(file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4") == 'expired token') {
+        return $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4")]);
+//        }
         $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
         $arrboards = json_decode($getBoards, true);
         $boards = [];
