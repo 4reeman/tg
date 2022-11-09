@@ -15,7 +15,10 @@ class TelegramOwn implements InputDataInterface {
     }
 
     public function getChatId() {
-        return $this->data['message']['chat']['id'];
+        if(!empty($this->data['message']['chat']['id'])) {
+            return $this->data['message']['chat']['id'];
+        }
+        return $this->data['callback_query']['message']['chat']['id'];
     }
     public function getUserId() {
         return $this->data['message']['from']['id'];
