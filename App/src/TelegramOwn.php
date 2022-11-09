@@ -24,7 +24,10 @@ class TelegramOwn implements InputDataInterface {
         return $this->data['message']['from']['id'];
     }
     public function getUserName() {
-        return $this->data['message']['from']['first_name'];
+        if(!empty($this->data['message']['from']['first_name'])) {
+            return $this->data['message']['from']['first_name'];
+        }
+        return $this->data['callback_query']['from']['first_name'];
     }
     public function getMessage() {
         return $this->data['message']['text'];
