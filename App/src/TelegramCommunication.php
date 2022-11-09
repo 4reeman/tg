@@ -91,7 +91,6 @@ class TelegramCommunication {
                     ]
                 ]
             ],
-            'one_time_keyboard' => true
         ];
         $encodedKeyboard = json_encode($keyboard);
         $trelloGetReport = [
@@ -105,7 +104,7 @@ class TelegramCommunication {
     public function trelloGetReport() {
         $get = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
         $getlist = file_get_contents("https://api.trello.com/1/boards/6351ebc9c751fa01e82f1390/lists?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
-        $getlist = json_encode($getlist, true);
+        $getlist = json_encode($getlist, JSON_OBJECT_AS_ARRAY);
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($getlist)]);
     }
