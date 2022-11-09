@@ -108,11 +108,11 @@ class TelegramCommunication {
         $arr = json_decode($getlist, true);
         $lists = [];
         foreach($arr as $key => $value) {
-            array_push($lists, $value['name'] . ',');
+            array_push($lists, $value['name']);
         }
 
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode(",", $lists)]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($lists)]);
     }
 
 }
