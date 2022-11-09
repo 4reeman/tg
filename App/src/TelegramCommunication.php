@@ -105,14 +105,14 @@ class TelegramCommunication {
         $get = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
         $getlis = file_get_contents("https://api.trello.com/1/boards/6351ebc9c751fa01e82f1390/lists?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
         $getlist = json_encode($getlis);
-        $arr = json_decode($getlist, true);
+        $arr = json_decode($getlist);
 //        $lists = [];
 //        foreach($arr as $key => $value) {
 //            array_push($lists, $value['name']);
 //        }
 //        $result = implode($lists);
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval(implode("", $arr))]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => $arr[0]->name]);
     }
 
 }
