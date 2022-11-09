@@ -126,7 +126,7 @@ Class SqlDatabaseConnection implements DbDriver {
             $query = "SELECT user_name, api_key, personal_token FROM `user_data` WHERE chat_id=? AND api_key IS NOT NULL AND personal_token IS NOT NULL";
             $prepared = $this->connection->prepare($query);
             $prepared->execute([$chat_id]);
-            $result = $prepared->fetch(PDO::FETCH_ASSOC);
+            $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             file_put_contents('my_log.txt', "Database error GeneralSelectData: " . $e->getMessage());
