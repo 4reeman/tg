@@ -115,7 +115,7 @@ class TelegramCommunication {
         $file = $arr[0]['name'];
         file_put_contents('arr.txt', strval($file));
         file_put_contents('arr1.txt', strval(10));
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => $arr[0]['name']]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'bla']);
     }
 
 }
