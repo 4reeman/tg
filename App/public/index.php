@@ -14,14 +14,18 @@ include '../src/TrelloAuthorizationCommunication.php';
 $data=json_decode(file_get_contents("php://input"));
 $headers = getallheaders();
 
+
 //$get = http_get("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
 
 function a() {
+    $da = new SqlDatabaseConnection();
+    $general = $da->generalSelect(-1001658519019);
     $data=json_decode(file_get_contents("php://input"));
     if($data!=null) {
         file_put_contents('data.json', json_encode($data));
         file_put_contents('data1.json', json_encode(getallheaders()));
         file_put_contents('data2.json', json_encode($_SERVER));
+        file_put_contents('general.json', json_encode($general));
         refresh( 3 );
     }
     else {
@@ -34,6 +38,7 @@ function refresh($time){
     $ret = json_decode(file_get_contents('data.json'), true);
     $ret1 = json_decode(file_get_contents('data1.json'), true);
     $ret2 = json_decode(file_get_contents('data2.json'), true);
+    $general = json_decode(file_get_contents('general.json'), true);
     echo ' </br>';
     echo "<pre>";
     print_r($ret);
@@ -46,6 +51,11 @@ function refresh($time){
     echo "<pre>";
     print_r($ret2);
     echo "</pre>";
+    echo "<pre>";
+    print_r($general);
+    echo "</pre>";
+
+
 }
 a();
 
