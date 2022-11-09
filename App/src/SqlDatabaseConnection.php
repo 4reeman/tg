@@ -121,6 +121,13 @@ Class SqlDatabaseConnection implements DbDriver {
         return $row;
     }
 
+    function generalSelect($chat_id) {
+        $query = "SELECT user_name, api_key, personal_token FROM `user_data` WHERE chat_id=? AND api_key IS NOT NULL AND personal_token IS NOT NULL";
+        $prepared = $this->connection->prepare($query);
+        $prepared->execute([$chat_id]);
+        $result = $prepared->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
 
 }
