@@ -125,7 +125,8 @@ class TelegramCommunication {
             array_push($result, $value['name']);
         }
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($this->db->generalSelect($this->data->getChatId()))]);
+        file_put_contents('general.txt',implode($this->db->generalSelect($this->data->getChatId()));
+//        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($this->db->generalSelect($this->data->getChatId()))]);
     }
 
 }
