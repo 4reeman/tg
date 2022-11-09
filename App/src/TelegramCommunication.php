@@ -109,10 +109,10 @@ class TelegramCommunication {
         foreach ($getlis as $obj){
             $ids[] = $obj->name;
         }
-
+        $result = join(', ', $ids);
 //        file_put_contents('arr.txt', strval($getlist));
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => join(', ', $ids)]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($result)]);
     }
 
 }
