@@ -103,9 +103,10 @@ class TelegramCommunication {
     }
 
     public function trelloGetReport() {
-//        $get = 10;
         $get = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
+        $gett = file_get_contents("https://api.trello.com/1/members/me/boards/636ad152a6b860016ab0c15b/lists?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($gett)]);
     }
 
 }
