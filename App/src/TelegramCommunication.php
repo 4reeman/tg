@@ -114,6 +114,7 @@ class TelegramCommunication {
             $this->getLists($value['id']);
             array_push($boards, $value['id']);
         }
+        file_put_contents('general.txt',implode($this->db->generalSelect($this->data->getChatId())));
         return $boards;
     }
 
