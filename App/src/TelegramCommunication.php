@@ -118,7 +118,7 @@ class TelegramCommunication {
         foreach ($decoded as $key=>$value) {
             array_push($result, $value['name']);
         }
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => $result]);
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
     }
 
 }
