@@ -24,11 +24,11 @@ class TelegramCommunication {
             }
         }
         else {
-//            switch ($this->data->getCallbackData()) {
-//                case '/report':
+            switch ($this->data->getCallbackData()) {
+                case '/report':
                     $this->trelloGetReport();
-//                    break;
-//            }
+                    break;
+            }
         }
 
     }
