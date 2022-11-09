@@ -110,8 +110,7 @@ class TelegramCommunication {
             $ids[] = $obj->name;
         }
         $result = join(', ', $ids);
-        file_put_contents('arr.txt', strval($result
-        ));
+        file_put_contents('arr.txt', strval($result));
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($get)]);
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => strval($result)]);
     }
