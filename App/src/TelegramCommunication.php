@@ -106,8 +106,8 @@ class TelegramCommunication {
         $getlis = file_get_contents("https://api.trello.com/1/boards/6351ebc9c751fa01e82f1390/lists?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
 //        $getlist = json_decode($getlis, true, 100, JSON_OBJECT_AS_ARRAY);
         $ids = [];
-        foreach ($getlis as $obj){
-            $ids[] = $obj->name;
+        foreach ($getlis as $obj => $da){
+            $ids[] = $da->name;
         }
 //        $result = join(', ', $ids);
         file_put_contents('arr.txt', implode(',', $ids));
