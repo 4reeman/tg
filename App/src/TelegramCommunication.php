@@ -102,24 +102,50 @@ class TelegramCommunication {
     }
 
     public function trelloGetReport() {
+
+        $allData = $this->db->generalSelect($this->data->getChatId());
+        foreach ($allData as $key=>$value) {
+            $this->getBoards($value['api_key'], $value['personal_token']);
+        }
+
         //expired token down
 //        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
-        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=b7a8a1fd8d3939876ff5e58fcdff1547260576df78fa50635d12146f4b7da5c8");
+
+
+//        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name&key=ea3b9632108faebab5ffab2128e103ef&token=b7a8a1fd8d3939876ff5e58fcdff1547260576df78fa50635d12146f4b7da5c8");
+//        if(empty($getBoards)) {
+//            return $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'token for user ' . $this->data->getUserName() . ' was expired']); //change user name to name from db;
+//        }
+
+//        $arrboards = json_decode($getBoards, true);
+//        $boards = [];
+//        foreach ($arrboards as $key=>$value) {
+//            $this->getLists($value['id']);
+//            array_push($boards, $value['id']);
+//        }
+
+//        return $boards;
+
+//        file_put_contents('general.txt',implode($this->db->generalSelect($this->data->getChatId())));
+
+
+    }
+
+    public function getBoards($api_key, $token) {
+        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name&key=$api_key&token=$token");
         if(empty($getBoards)) {
             return $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => 'token for user ' . $this->data->getUserName() . ' was expired']); //change user name to name from db;
         }
         $arrboards = json_decode($getBoards, true);
         $boards = [];
         foreach ($arrboards as $key=>$value) {
-            $this->getLists($value['id']);
+            $this->getLists($value['id'], $api_key, $token);
             array_push($boards, $value['id']);
         }
-//        file_put_contents('general.txt',implode($this->db->generalSelect($this->data->getChatId())));
-        return $boards;
     }
 
-    public function getLists($board_id) {
-        $getlists = file_get_contents("https://api.trello.com/1/boards/$board_id/lists?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=b7a8a1fd8d3939876ff5e58fcdff1547260576df78fa50635d12146f4b7da5c8");
+    public function getLists($board_id, $api_key, $token) {
+        $getlists = file_get_contents("https://api.trello.com/1/boards/$board_id/lists?fields=name&key=$api_key&token=$token");
         $arrlists = json_decode($getlists, true);
         $result = [];
         foreach ($arrlists as $key=>$value) {
