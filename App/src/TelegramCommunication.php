@@ -111,7 +111,7 @@ class TelegramCommunication {
 //                'personal_token' => $value['personal_token']
 //            ];
 //        }, $sorted);
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
+//        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
         foreach ($allData as $key=>$value) {
             $this->getBoards($value['api_key'], $value['personal_token']);
         }
