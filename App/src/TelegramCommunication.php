@@ -104,17 +104,17 @@ class TelegramCommunication {
     public function trelloGetReport() {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
-        $sorted = [];
-        $sort = array_walk($allData, function($value, $key, $sorted) {
-            $sorted[$value['user_name']] = [
-                'api_key' => $value['api_key'],
-                'personal_token' => $value['personal_token']
-            ];
-        }, $sorted);
+//        $sorted = [];
+//        $sort = array_walk($allData, function($value, $key, $sorted) {
+//            $sorted[$value['user_name']] = [
+//                'api_key' => $value['api_key'],
+//                'personal_token' => $value['personal_token']
+//            ];
+//        }, $sorted);
         $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
-//        foreach ($allData as $key=>$value) {
-//            $this->getBoards($value['api_key'], $value['personal_token']);
-//        }
+        foreach ($allData as $key=>$value) {
+            $this->getBoards($value['api_key'], $value['personal_token']);
+        }
 
         //expired token down
 //        $getBoards = file_get_contents("https://api.trello.com/1/members/me/boards?fields=name,url&key=ea3b9632108faebab5ffab2128e103ef&token=6a7c621b92d4d7e0edad96fcfaeefdade788c459ae91a82b957e5c0e565b4fa4");
