@@ -110,8 +110,10 @@ class TelegramCommunication {
                 'api_key' => $value['api_key'],
                 'personal_token' => $value['personal_token']
             ];
-            $result = json_decode($this->usersData, true);
-            $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
+            $result1 = json_decode($this->usersData, true);
+            $result = json_encode($result1);
+            file_put_contents('last.txt', $result);
+//            $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
 
