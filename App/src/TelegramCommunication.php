@@ -106,10 +106,10 @@ class TelegramCommunication {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
         foreach ($allData as $key=>$value) {
-            $this->usersData = 'awer';
-            $result1 = json_decode($this->usersData, true);
-            $result = json_encode($result1);
-            file_put_contents('last.json', $result1);
+//            $this->usersData = 'awer';
+//            $result1 = json_decode($this->usersData, true);
+            $result = json_encode($allData);
+            file_put_contents('last.json', $result);
 //            $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
