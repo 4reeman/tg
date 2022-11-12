@@ -101,17 +101,21 @@ class TelegramCommunication {
         $this->response->send('sendMessage', $trelloGetReport);
     }
 
+    public function dataCallback($value, $key) {
+        $sorted = [];
+        $sorted[$value['user_name']] = [
+            'api_key' => $value['api_key'],
+            'personal_token' => $value['personal_token']
+        ];
+
+        return $sorted;
+    }
+
     public function trelloGetReport() {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
-//        $sorted = [];
-//        $sort = array_walk($allData, function($value, $key, $sorted) {
-//            $sorted[$value['user_name']] = [
-//                'api_key' => $value['api_key'],
-//                'personal_token' => $value['personal_token']
-//            ];
-//        }, $sorted);
-//        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
+        $sort = array_walk($allData, '$this->dataCallback');
+        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sort)]);
         foreach ($allData as $key=>$value) {
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
