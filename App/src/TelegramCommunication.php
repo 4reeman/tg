@@ -112,7 +112,7 @@ class TelegramCommunication {
             ];
             $result1 = json_decode($this->usersData, true);
             $result = json_encode($result1);
-            file_put_contents('last.txt', implode($result1));
+            file_put_contents('last.json', $result1);
 //            $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($result)]);
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
