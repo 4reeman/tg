@@ -106,10 +106,7 @@ class TelegramCommunication {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
         foreach ($allData as $key=>$value) {
-            $this->usersData[$value['user_name']] = [
-                'api_key' => $value['api_key'],
-                'personal_token' => $value['personal_token']
-            ];
+            $this->usersData = 'awer';
             $result1 = json_decode($this->usersData, true);
             $result = json_encode($result1);
             file_put_contents('last.json', $result1);
