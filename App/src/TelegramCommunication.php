@@ -5,6 +5,7 @@ class TelegramCommunication {
     public $data;
     public $response;
     public $db;
+    public $usersData;
 
     public function __construct(TelegramOwn $data, SendMessageInterface $response, DbDriver $db) {
         $this->data = $data;
@@ -101,21 +102,15 @@ class TelegramCommunication {
         $this->response->send('sendMessage', $trelloGetReport);
     }
 
-    public function dataCallback($value, $key) {
-        $sorted = [];
-        $sorted[$value['user_name']] = [
-            'api_key' => $value['api_key'],
-            'personal_token' => $value['personal_token']
-        ];
-        file_put_contents('last.txt', $sorted);
-//        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
-    }
-
     public function trelloGetReport() {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
-        $sort = array_walk($allData, 'dataCallback');
         foreach ($allData as $key=>$value) {
+            $this->usersData[$value['user_name']] = [
+                'api_key' => $value['api_key'],
+                'personal_token' => $value['personal_token']
+            ];
+            $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($this->usersData)]);
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
 
