@@ -107,8 +107,8 @@ class TelegramCommunication {
             'api_key' => $value['api_key'],
             'personal_token' => $value['personal_token']
         ];
-
-        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
+        file_put_contents('last.txt', $sorted);
+//        $this->response->send('sendMessage', ['chat_id' => $this->data->getChatId(), 'text' => implode($sorted)]);
     }
 
     public function trelloGetReport() {
