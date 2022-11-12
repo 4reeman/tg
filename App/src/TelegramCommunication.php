@@ -114,7 +114,7 @@ class TelegramCommunication {
     public function trelloGetReport() {
 
         $allData = $this->db->generalSelect($this->data->getChatId());
-        $sort = array_walk($allData, '$this->dataCallback');
+        $sort = array_walk($allData, 'dataCallback');
         foreach ($allData as $key=>$value) {
             $this->getBoards($value['user_name'], $value['api_key'], $value['personal_token']);
         }
