@@ -58,7 +58,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
             ];
             $encodedKeyboard = json_encode($keyboard);
             $trelloKeyLink = [
-                'chat_id' => $this->data->getChatId(),
+                'chat_id' => $this->getChatId(),
                 'text' => 'You need to connect your Telegram account ' .
                     'with our server to use the functionality of this bot in full',
                 'reply_markup' => $encodedKeyboard
