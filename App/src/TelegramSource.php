@@ -12,6 +12,7 @@ class TelegramSource implements DataSourceDefinerInterface {
     }
 
     public function sendMessage() {
+        echo 'send';
         file_get_contents(self::URL . '/sendMessage?' . http_build_query($this->message));
     }
 }
