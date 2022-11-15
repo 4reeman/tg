@@ -3,7 +3,7 @@
 class TelegramCommunicator extends IncomingDataFormatter {
 
     public $data;
-    public mixed $response;
+    public $response = 'qwr';
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
@@ -67,8 +67,8 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
-//        return new TelegramSource($this->response);
-        return new TelegramSource();
+        return new TelegramSource($this->response);
+//        return new TelegramSource();
     }
 
 }
