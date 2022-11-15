@@ -12,7 +12,6 @@ abstract class IncomingDataFormatter {
 
     public function sendMessage() {
         $source = $this->getDataSource();
-        $source = $this->getDataSource();
         $source->sendMessage();
     }
 }
