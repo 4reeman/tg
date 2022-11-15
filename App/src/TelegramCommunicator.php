@@ -34,7 +34,8 @@ class TelegramCommunicator extends IncomingDataFormatter {
 //        $response = ['chat_id' => $this->data->getChatId(),
 //            'text' => 'Hi, ' . $this->data->getUserName()];
 //        return new TelegramSource($response);
-        return new TelegramSource();
+        $resp = 'proc';
+        return new TelegramSource($resp);
     }
 
 }
