@@ -29,7 +29,6 @@ function refresh($time){
     $ret = json_decode(file_get_contents('data.json'), true);
     $ret1 = json_decode(file_get_contents('data1.json'), true);
     $ret2 = json_decode(file_get_contents('data2.json'), true);
-    $general = json_decode(file_get_contents('general.json'), true);
     echo ' </br>';
     echo "<pre>";
     print_r($ret);
@@ -42,11 +41,6 @@ function refresh($time){
     echo "<pre>";
     print_r($ret2);
     echo "</pre>";
-    echo "<pre>";
-    print_r($general);
-    echo "</pre>";
-
-
 }
 a();
 
