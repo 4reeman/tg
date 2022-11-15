@@ -2,7 +2,7 @@
 
 class TelegramCommunicator extends IncomingDataFormatter {
 
-    private $data;
+    public $data;
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
