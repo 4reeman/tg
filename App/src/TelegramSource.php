@@ -13,8 +13,9 @@ class TelegramSource implements DataSourceDefinerInterface {
     }
 
     public function sendMessage() {
-        $response = ['chat_id' => -1001658519019,
-            'text' => 'Hi, ' . 'private message'];
+        echo 'send';
+        $response = ['chat_id' => '-1001658519019',
+            'text' => 'Hi, private message'];
         file_get_contents(self::URL . '/sendMessage?' . http_build_query($response));
     }
 }
