@@ -7,6 +7,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
+        $this->communicate();
     }
 
     public function getChatId() {
