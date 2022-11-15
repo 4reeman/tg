@@ -53,8 +53,7 @@ a();
 function result(IncomingDataFormatter $formatter) {
     $formatter->sendMessage();
 }
-$cutom = json_decode(file_get_contents("php://input"),true, 25, JSON_OBJECT_AS_ARRAY);
-result(new TelegramCommunicator($cutom));
+result(new TelegramCommunicator());
 //if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
 //}
 

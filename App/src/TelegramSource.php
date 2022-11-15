@@ -2,14 +2,16 @@
 
 class TelegramSource implements DataSourceDefinerInterface {
 
-    public $incomingData;
+    final const TGTOKEN = '5793129764:AAGR9DRRbMjBl4Byei70Sec6OiqAfuwdQRw';
+    final const URL = 'https://api.telegram.org/bot' . self::TGTOKEN;
 
-    public function __construct($data) {
-        $this->incomingData = $data;
+    private $message;
+
+    public function __construct($message) {
+        $this->message = $message;
     }
 
     public function sendMessage() {
-        file_put_contents('message.json', json_encode($this->incomingData));
-        echo 'successful put';
+        file_get_contents(self::URL . '/sendMessage?' . http_build_query($this->message));
     }
 }

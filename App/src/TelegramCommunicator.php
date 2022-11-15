@@ -2,8 +2,41 @@
 
 class TelegramCommunicator extends IncomingDataFormatter {
 
-    public function getDataSource($data): DataSourceDefinerInterface {
-        return new TelegramSource($data);
+    private $data;
+
+    public function __construct() {
+        $this->data = parent::getDecodedBody();
+    }
+
+    public function getChatId() {
+        if(!empty($this->data['message']['chat']['id'])) {
+            return $this->data['message']['chat']['id'];
+        }
+        return $this->data['callback_query']['message']['chat']['id'];
+    }
+    public function getUserId() {
+        return $this->data['message']['from']['id'];
+    }
+    public function getUserName() {
+        if(!empty($this->data['message']['from']['first_name'])) {
+            return $this->data['message']['from']['first_name'];
+        }
+        return $this->data['callback_query']['from']['first_name'];
+    }
+    public function getMessage() {
+        return $this->data['message']['text'];
+    }
+    public function getCallbackData() {
+        return $this->data['callback_query']['data'];
+    }
+
+    public function startResponse() {
+        return ['chat_id' => $this->data->getChatId(),
+            'text' => 'Hi, ' . $this->data->getUserName()];
+    }
+
+    public function getDataSource(): DataSourceDefinerInterface {
+        return new TelegramSource($this->startResponse());
     }
 
 }
