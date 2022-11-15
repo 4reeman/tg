@@ -3,11 +3,11 @@
 class TelegramCommunicator extends IncomingDataFormatter {
 
     public $data;
-    public $response = 'qwr';
+    public $response;
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
-//        $this->communicate();
+        $this->communicate();
     }
 
     public function getChatId() {
@@ -33,7 +33,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function communicate() {
-        switch ($this->data->getMessage()) {
+        switch ($this->getMessage()) {
             case '/start':
                 $this->startResponse();
                 break;
@@ -67,9 +67,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
-        $this->startResponse();
         return new TelegramSource($this->response);
-//        return new TelegramSource();
     }
 
 }
