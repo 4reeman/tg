@@ -3,6 +3,7 @@
 class TelegramCommunicator extends IncomingDataFormatter {
 
     public $data;
+    public $response;
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
@@ -30,11 +31,42 @@ class TelegramCommunicator extends IncomingDataFormatter {
         return $this->data['callback_query']['data'];
     }
 
+    public function communicate() {
+        switch ($this->data->getMessage()) {
+            case '/start':
+                $this->startResponse();
+                break;
+        }
+
+    }
+
+    public function startResponse() {
+            $keyboard = [
+                'inline_keyboard' => [
+                    [
+                        [
+                            'text' => 'Trello Authorization',
+                            'login_url' => [
+                                'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
+                                'request_write_access' => true,
+                                'forward_text' => 'Login (forwarded)'
+                            ]
+                        ]
+                    ]
+                ]
+            ];
+            $encodedKeyboard = json_encode($keyboard);
+            $trelloKeyLink = [
+                'chat_id' => $this->data->getChatId(),
+                'text' => 'You need to connect your Telegram account ' .
+                    'with our server to use the functionality of this bot in full',
+                'reply_markup' => $encodedKeyboard
+            ];
+            $this->response = $trelloKeyLink;
+    }
+
     public function getDataSource(): DataSourceDefinerInterface {
-//        $response = ['chat_id' => $this->data->getChatId(),
-//            'text' => 'Hi, ' . $this->data->getUserName()];
-//        return new TelegramSource($response);
-        return new TelegramSource($this->data);
+        return new TelegramSource($this->response);
     }
 
 }
