@@ -53,10 +53,10 @@ a();
 function result(IncomingDataFormatter $formatter) {
     $formatter->sendMessage();
 }
-
-if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
-    result(new TelegramCommunicator());
-}
+$cutom = json_decode(file_get_contents("php://input"),true, 25, JSON_OBJECT_AS_ARRAY);
+result(new TelegramCommunicator($cutom));
+//if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
+//}
 
 //if($headers['Source'] == 'trello_authorization') {
 //
