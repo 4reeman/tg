@@ -63,10 +63,11 @@ class TelegramCommunicator extends IncomingDataFormatter {
                     'with our server to use the functionality of this bot in full',
                 'reply_markup' => $encodedKeyboard
             ];
-//            $this->response = $trelloKeyLink;
+            $this->response = $trelloKeyLink;
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
+        $this->startResponse();
         return new TelegramSource($this->response);
 //        return new TelegramSource();
     }
