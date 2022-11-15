@@ -9,6 +9,7 @@ class TelegramSource implements DataSourceDefinerInterface {
 
     public function __construct($message) {
         $this->message = $message;
+        file_put_contents('checkout.json', json_encode($this->message));
     }
 
     public function sendMessage() {
