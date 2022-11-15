@@ -67,7 +67,8 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
-        return new TelegramSource($this->response);
+//        return new TelegramSource($this->response);
+        return new TelegramSource();
     }
 
 }
