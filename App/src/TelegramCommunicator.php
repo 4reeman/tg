@@ -31,8 +31,9 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
-        return new TelegramSource(['chat_id' => $this->data->getChatId(),
-            'text' => 'Hi, ' . $this->data->getUserName()]);
+        $response = ['chat_id' => $this->data->getChatId(),
+            'text' => 'Hi, ' . $this->data->getUserName()];
+        return new TelegramSource($response);
     }
 
 }
