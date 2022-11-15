@@ -10,12 +10,16 @@ class TelegramSource implements DataSourceDefinerInterface {
 //    public function __construct($message) {
 //        $this->message = $message;
 //    }
-
+    protected function getDecodedBody() {
+        $http_body = file_get_contents("php://input");
+        $data = json_decode($http_body,true, 25, JSON_OBJECT_AS_ARRAY);
+        return $data;
+    }
     public function sendMessage() {
         echo 'send';
-//        file_put_contents('checkout.json', json_encode($this->message));
+
         $response = ['chat_id' => '-1001658519019',
-            'text' => 'Hi, private message'];
+            'text' => implode($this->getDecodedBody())];
         file_get_contents(self::URL . '/sendMessage?' . http_build_query($response));
     }
 }
