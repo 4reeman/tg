@@ -7,7 +7,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
 
     public function __construct() {
         $this->data = parent::getDecodedBody();
-        $this->communicate();
+//        $this->communicate();
     }
 
     public function getChatId() {
@@ -53,7 +53,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
                                 'forward_text' => 'Login (forwarded)'
                             ]
                         ]
-                    ]
+                    ],
                 ]
             ];
             $encodedKeyboard = json_encode($keyboard);
@@ -63,7 +63,7 @@ class TelegramCommunicator extends IncomingDataFormatter {
                     'with our server to use the functionality of this bot in full',
                 'reply_markup' => $encodedKeyboard
             ];
-            $this->response = $trelloKeyLink;
+//            $this->response = $trelloKeyLink;
     }
 
     public function getDataSource(): DataSourceDefinerInterface {
