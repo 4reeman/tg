@@ -6,5 +6,5 @@ interface DbDriver {
     function selectData($data, $quantity);
     function updateData($data, $conditions);
 //    function selectData($column, $condition, $value);
-    function generalSelect($chat_id);
+//    function generalSelect($chat_id);
 }

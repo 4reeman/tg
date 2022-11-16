@@ -19,11 +19,9 @@ Class SqlDatabaseConnection implements DbDriver {
         try {
             $pdo = new PDO(self::DSN, self::USERNAME, self::PASSWORD);
             $this->connection = $pdo;
-            return true;
         } catch (PDOException $e) {
             echo "MySql Connection Error: " . $e->getMessage();
         }
-        return false;
     }
     /*
      * example
