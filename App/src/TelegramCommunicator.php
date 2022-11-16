@@ -54,24 +54,24 @@ class TelegramCommunicator extends IncomingDataFormatter {
         switch ($this->getMessage()) {
             case '/start':
                 $this->initUser();
-                $this->startCommand();
+//                $this->startCommand();
                 break;
         }
     }
 
     public function initUser() {
-//        $tgData = [
-//            'user_id' => $this->getUserId(),
-//            'chat_id' => $this->getChatId()
-//        ];
-//        $tgInsertData = [
-//            'user_id' => $this->data->getUserId(),
-//            'user_name' => $this->data->getUserName(),
-//            'chat_id' => $this->data->getChatId()
-//        ];
-//        if(!$this->db->selectData($tgData, true)) {
-//            $this->db->insertData($tgInsertData);
-//        }
+        $tgData = [
+            'user_id' => $this->getUserId(),
+            'chat_id' => $this->getChatId()
+        ];
+        $tgInsertData = [
+            'user_id' => $this->data->getUserId(),
+            'user_name' => $this->data->getUserName(),
+            'chat_id' => $this->data->getChatId()
+        ];
+        if(!$this->db->selectData($tgData, true)) {
+            $this->db->insertData($tgInsertData);
+        }
         $greeting = [
             'chat_id' => $this->getChatId(),
             'text' => 'Hi, ' . $this->getUserName()
@@ -79,29 +79,29 @@ class TelegramCommunicator extends IncomingDataFormatter {
         $this->response = $greeting;
     }
 
-    public function startCommand() {
-        $keyboard = [
-            'inline_keyboard' => [
-                [
-                    [
-                        'text' => 'Trello Authorization',
-                        'login_url' => [
-                            'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
-                            'request_write_access' => true,
-                            'forward_text' => 'Login (forwarded)'
-                        ]
-                    ]
-                ],
-            ]
-        ];
-        $encodedKeyboard = json_encode($keyboard);
-        $trelloKeyLink = [
-            'chat_id' => $this->getChatId(),
-            'text' => 'You need to connect your Telegram account ' .
-                'with our server to use the functionality of this bot in full',
-            'reply_markup' => $encodedKeyboard
-        ];
-        $this->response = $trelloKeyLink;
-    }
+//    public function startCommand() {
+//        $keyboard = [
+//            'inline_keyboard' => [
+//                [
+//                    [
+//                        'text' => 'Trello Authorization',
+//                        'login_url' => [
+//                            'url' => 'https://server4reema.vps.webdock.cloud/index_trello.php',
+//                            'request_write_access' => true,
+//                            'forward_text' => 'Login (forwarded)'
+//                        ]
+//                    ]
+//                ],
+//            ]
+//        ];
+//        $encodedKeyboard = json_encode($keyboard);
+//        $trelloKeyLink = [
+//            'chat_id' => $this->getChatId(),
+//            'text' => 'You need to connect your Telegram account ' .
+//                'with our server to use the functionality of this bot in full',
+//            'reply_markup' => $encodedKeyboard
+//        ];
+//        $this->response = $trelloKeyLink;
+//    }
 
 }

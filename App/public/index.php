@@ -1,9 +1,8 @@
 <?php
-
-include '../src/DataSourceDefinerInterface.php';
-include '../src/IncomingDataFormatter.php';
 include '../src/SqlDatabaseConnection.php';
 include '../src/DbDriver.php';
+include '../src/DataSourceDefinerInterface.php';
+include '../src/IncomingDataFormatter.php';
 include '../src/TelegramSource.php';
 include '../src/TelegramCommunicator.php';
 
