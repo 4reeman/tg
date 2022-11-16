@@ -47,7 +47,7 @@ a();
 function result(IncomingDataFormatter $formatter) {
     $formatter->sendMessage();
 }
-result(new TelegramCommunicator());
+result(new TelegramCommunicator(new SqlDatabaseConnection()));
 //if($headers['X-Telegram-Bot-Api-Secret-Token'] == 'telegram') {
 //}
 
