@@ -49,7 +49,6 @@ class TelegramCommunicator extends IncomingDataFormatter {
                 'text' => 'Sorry, but this bot do not accessible via private chat'
             ];
             $this->response = $respons;
-            return false;
         }
 
         switch ($this->getMessage()) {
@@ -61,18 +60,18 @@ class TelegramCommunicator extends IncomingDataFormatter {
     }
 
     public function initUser() {
-        $tgData = [
-            'user_id' => $this->getUserId(),
-            'chat_id' => $this->getChatId()
-        ];
-        $tgInsertData = [
-            'user_id' => $this->data->getUserId(),
-            'user_name' => $this->data->getUserName(),
-            'chat_id' => $this->data->getChatId()
-        ];
-        if(!$this->db->selectData($tgData, true)) {
-            $this->db->insertData($tgInsertData);
-        }
+//        $tgData = [
+//            'user_id' => $this->getUserId(),
+//            'chat_id' => $this->getChatId()
+//        ];
+//        $tgInsertData = [
+//            'user_id' => $this->data->getUserId(),
+//            'user_name' => $this->data->getUserName(),
+//            'chat_id' => $this->data->getChatId()
+//        ];
+//        if(!$this->db->selectData($tgData, true)) {
+//            $this->db->insertData($tgInsertData);
+//        }
         $greeting = [
             'chat_id' => $this->getChatId(),
             'text' => 'Hi, ' . $this->getUserName()
